@@ -1,0 +1,7 @@
+node_modules/
+*.log
+api-tests/cypress/reports/
+e2e-tests/cypress/reports/
+mobile-tests/reports/
+load-tests/report/
+load-tests/results.jtl
