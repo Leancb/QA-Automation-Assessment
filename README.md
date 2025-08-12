@@ -146,5 +146,3 @@ Cada subprojeto possui seu próprio `package.json` e README com instruções.
 - **Cypress**: Mochawesome (HTML) em `cypress/reports` (API e E2E)
 - **WDIO**: JUnit em `mobile-tests/reports`
 - **JMeter**: HTML em `load-tests/report`
-
-Boa avaliação! 🚀
