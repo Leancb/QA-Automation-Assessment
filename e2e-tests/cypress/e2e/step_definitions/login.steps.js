@@ -1,16 +1,17 @@
-import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
+// cypress/support/step_definitions/login.steps.js
+const { Given, When, Then } = require('@badeball/cypress-cucumber-preprocessor');
 
-Given('que eu abro a página inicial', () => {
-  cy.visit('/')
-})
+Given(/^que eu abro a página inicial$/, () => {
+  cy.visit('https://www.saucedemo.com/');
+});
 
-When('eu faço login com credenciais válidas', () => {
-  cy.get('#user-name').type(Cypress.env('USERNAME'))
-  cy.get('#password').type(Cypress.env('PASSWORD'))
-  cy.get('#login-button').click()
-})
+When(/^eu faço login$/, () => {
+  cy.get('[data-test="username"]').clear().type('standard_user');
+  cy.get('[data-test="password"]').clear().type('secret_sauce', { log: false });
+  cy.get('[data-test="login-button"]').click();
+});
 
-Then('devo ver a página de produtos', () => {
-  cy.url().should('include', '/inventory.html')
-  cy.get('.inventory_list').should('be.visible')
-})
+Then(/^devo ver a lista de produtos$/, () => {
+  cy.url().should('include', '/inventory.html');
+  cy.get('.inventory_list').should('be.visible');
+});

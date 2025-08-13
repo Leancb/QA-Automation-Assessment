@@ -5,5 +5,5 @@ Feature: Login e navegação
 
   Scenario: Login válido e visualização da lista de itens
     Given que eu abro a página inicial
-    When eu faço login com credenciais válidas
-    Then devo ver a página de produtos
+    When eu faço login
+    Then devo ver a lista de produtos

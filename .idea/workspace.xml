@@ -36,12 +36,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="Projeto corrigido">
       <change afterPath="$PROJECT_DIR$/README_old.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress.env.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/cypress-api-report.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/cypress-e2e-report.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/jmeter-dashboard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/wdio-junit-report.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/load-tests/cypress.env.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress.config.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/login/login.steps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/package-lock.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/dashboard.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/jquery-ui.min.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/jquery-ui.structure.min.css" afterDir="false" />
@@ -299,24 +296,11 @@
       <change afterPath="$PROJECT_DIR$/load-tests/results-20250812-225638.jtl" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/load-tests/temp/latencyVsRequest/latencyVsRequest16766850659738569621-0" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/load-tests/temp/responseTimeVsRequest/responseTimeVsRequest3175198164698783035-0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/app-under-test.apk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/test/specs/android/smoke.e2e.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/wdio.android.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/wdio.conf.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-tests/cypress/e2e/api.spec.cy.js" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/cypress/e2e/api.spec.cy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-tests/cypress/screenshots/api.spec.cy.js/API Tests - ReqRes -- DELETE apiusers2 - deve deletar um usuário (failed).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-tests/cypress/screenshots/api.spec.cy.js/API Tests - ReqRes -- NEGATIVO - GET apiunknown999 - deve retornar 404 (failed).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-tests/cypress/screenshots/api.spec.cy.js/API Tests - ReqRes -- POST apiusers - deve criar um usuário (failed).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-tests/cypress/screenshots/api.spec.cy.js/API Tests - ReqRes -- PUT apiusers2 - deve atualizar um usuário (failed).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/e2e-tests/cypress.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/test/specs/login.e2e.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/test/specs/login.e2e.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/wdio.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/login.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/step_definitions/login.steps.js" beforeDir="false" afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/step_definitions/login.steps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e-tests/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/e2e-tests/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,6 +314,12 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
@@ -398,6 +388,14 @@
       <option name="presentableId" value="Default" />
       <updated>1755024855277</updated>
     </task>
+    <task id="LOCAL-00001" summary="Projeto corrigido">
+      <created>1755054232029</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1755054232029</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
