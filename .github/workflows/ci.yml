@@ -1,82 +1,233 @@
-name: QA Automation Assessment
+name: CI
 
 on:
   push:
+    branches: [ main ]
   pull_request:
+    branches: [ main ]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  CI: true
 
 jobs:
+  # =======================
+  # API TESTS (CYPRESS)
+  # =======================
   api_tests:
+    name: API (Cypress)
     runs-on: ubuntu-latest
-    defaults:
-      run:
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: api-tests/package-lock.json
+
+      # Dica: crie o secret REQRES_API_KEY no repo
+      - name: Install deps
         working-directory: api-tests
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm ci
-      - run: npx cypress run
-      - uses: actions/upload-artifact@v4
-        with:
-          name: api-tests-report
-          path: api-tests/cypress/reports
+        run: npm ci
+        env:
+          CYPRESS_REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
 
+      - name: Run Cypress API tests
+        working-directory: api-tests
+        run: npx cypress run
+        env:
+          CYPRESS_REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
+
+      - name: Upload Cypress reports (API)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-api-reports
+          path: |
+            api-tests/cypress/reports/**
+            api-tests/cypress/screenshots/**
+          retention-days: 7
+
+  # =======================
+  # E2E TESTS (CYPRESS + CUCUMBER)
+  # =======================
   e2e_tests:
+    name: E2E Web (Cypress + Cucumber)
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: e2e-tests
+    timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm ci
-      - run: npx cypress run
-      - uses: actions/upload-artifact@v4
-        with:
-          name: e2e-tests-report
-          path: e2e-tests/cypress/reports
+      - name: Checkout
+        uses: actions/checkout@v4
 
-  mobile_tests:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: mobile-tests
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - uses: actions/setup-java@v4
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: e2e-tests/package-lock.json
+
+      - name: Install deps
+        working-directory: e2e-tests
+        run: npm ci
+
+      # Se seu projeto usa cypress.config.cjs, mantenha a flag abaixo.
+      - name: Run Cypress E2E (Cucumber)
+        working-directory: e2e-tests
+        run: npx cypress run --config-file cypress.config.cjs
+
+      - name: Upload Cypress reports (E2E)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-e2e-reports
+          path: |
+            e2e-tests/cypress/reports/**
+            e2e-tests/cypress/screenshots/**
+          retention-days: 7
+
+  # =======================
+  # MOBILE TESTS (APPIUM + ANDROID EMULATOR)
+  # =======================
+  mobile_tests:
+    name: Mobile (Android - Appium UiAutomator2)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: mobile-tests/package-lock.json
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
-      - run: npm ci
-      - run: npx appium driver install fake
-      - run: nohup npx appium server --log-level info &
-      - run: npx wdio run wdio.conf.js
-      - uses: actions/upload-artifact@v4
-        with:
-          name: mobile-tests-report
-          path: mobile-tests/reports
 
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Accept Android licenses
+        run: yes | sdkmanager --licenses
+
+      - name: Install Android components (API 30)
+        run: |
+          sdkmanager "platforms;android-30" "platform-tools" "emulator" \
+                     "system-images;android-30;google_apis;x86_64"
+
+      - name: Create AVD
+        run: |
+          echo "no" | avdmanager create avd -n ci-avd \
+            -k "system-images;android-30;google_apis;x86_64" \
+            --device "pixel"
+
+      - name: Boot emulator (headless)
+        run: |
+          nohup emulator -avd ci-avd -no-window -no-audio -no-snapshot -no-boot-anim \
+               -gpu swiftshader_indirect -accel auto >/dev/null 2>&1 &
+          adb wait-for-device
+          # Espera o Android terminar de bootar
+          adb shell 'while [[ $(getprop sys.boot_completed) != "1" ]]; do sleep 1; done'
+          # Desbloqueia a tela
+          adb shell input keyevent 82
+
+      - name: Install Appium 2 + UiAutomator2 driver
+        run: |
+          npm i -g appium@^2
+          npx appium driver install uiautomator2
+
+      - name: Start Appium server
+        run: |
+          npx appium server --log-level info --use-drivers=uiautomator2 > appium.log 2>&1 &
+          sleep 5
+
+      - name: Install project deps (mobile-tests)
+        working-directory: mobile-tests
+        run: npm ci
+
+      - name: Verify APK exists
+        run: ls -lh mobile-tests/app/*.apk
+
+      - name: Run WDIO tests
+        run: npx wdio run mobile-tests/wdio.conf.cjs | tee wdio.out
+
+      - name: Upload Mobile logs/artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-artifacts
+          path: |
+            appium.log
+            wdio.out
+            mobile-tests/reports/**
+          retention-days: 7
+
+  # =======================
+  # LOAD TESTS (JMETER)
+  # =======================
   load_tests:
+    name: Load (JMeter)
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: load-tests
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - name: Install JMeter
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Download Apache JMeter
         run: |
-          sudo apt-get update
-          sudo apt-get install -y jmeter
-      - name: Run JMeter
+          JMETER_VERSION=5.6.3
+          curl -sL https://downloads.apache.org/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz -o jmeter.tgz \
+          || curl -sL https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz -o jmeter.tgz
+          tar -xzf jmeter.tgz
+          echo "$PWD/apache-jmeter-${JMETER_VERSION}/bin" >> $GITHUB_PATH
+
+      - name: Run JMeter non-GUI
         run: |
-          jmeter -n -t jmeter-test-plan.jmx -l results.jtl -e -o report
-      - uses: actions/upload-artifact@v4
+          mkdir -p load-tests/results load-tests/reports
+          jmeter -n \
+            -t load-tests/jmeter-test-plan.jmx \
+            -l load-tests/results/results.jtl \
+            -e -o load-tests/reports \
+            -Jjmeter.save.saveservice.output_format=csv \
+            -Jjmeter.save.saveservice.assertion_results=none \
+            -Jjmeter.save.saveservice.response_data.on_error=false \
+            -Jjmeter.save.saveservice.bytes=true \
+            -Jjmeter.save.saveservice.label=true \
+            -Jjmeter.save.saveservice.latency=true \
+            -Jjmeter.save.saveservice.connect_time=true \
+            -Jjmeter.save.saveservice.response_code=true \
+            -Jjmeter.save.saveservice.response_message=true \
+            -Jjmeter.save.saveservice.successful=true \
+            -Jjmeter.save.saveservice.thread_name=true \
+            -Jjmeter.save.saveservice.timeStamp=true
+
+      - name: Upload JMeter report
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: jmeter-report
-          path: load-tests/report
+          path: |
+            load-tests/reports/**
+            load-tests/results/results.jtl
+          retention-days: 3
