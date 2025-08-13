@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="BuildServerSettings">
     <option name="LOGIN" value="" />
     <option name="SERVER_URL" value="http://buildserver" />
@@ -21,13 +24,300 @@
     <option name="SHOW_CLOSE_PROMPT" value="true" />
     <option name="TOOL_WINDOW_SELECTED_CONTENT_INDEX" value="0" />
     <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
+    <treeState key="project">
+      <selectedPath>
+        <pathElement>
+          <option name="myNodeId" value="helperText" />
+          <option name="myNodeType" value="jetbrains.buildServer.tree.descriptors.LinkedTextDescriptor" />
+        </pathElement>
+      </selectedPath>
+    </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="">
+    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="Projeto corrigido">
+      <change afterPath="$PROJECT_DIR$/README_old.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-tests/cypress.env.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/cypress-api-report.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/cypress-e2e-report.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/jmeter-dashboard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/wdio-junit-report.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/cypress.env.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/dashboard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/jquery-ui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/jquery-ui.structure.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/jquery-ui.theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/legends.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/theme.blue.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/curvedLines.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/customGraph.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/dashboard-commons.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/dashboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/graph.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/hashtable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/jquery.cookie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/jquery.flot.stack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/jquery.numberformatter-1.2.3.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/jquery.tablesorter.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/pages/CustomsGraphs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/pages/OverTime.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/pages/ResponseTimes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/pages/Throughput.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/pages/icon-apache.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/dist/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/dist/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot-axislabels/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot-axislabels/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot-axislabels/jquery.flot.axislabels.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot.tooltip/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot.tooltip/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot.tooltip/js/excanvas.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.tooltip.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.tooltip.source.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/API.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/FAQ.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/NEWS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/PLUGINS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/component.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/excanvas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/excanvas.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/flot.jquery.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.colorhelpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.canvas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.categories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.crosshair.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.errorbars.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.fillbetween.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.image.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.navigate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.pie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.resize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.selection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.stack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.symbol.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.threshold.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.time.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/bordered-pulled.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/core.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/extras.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/fixed-width.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/font-awesome.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/icons.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/larger.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/list.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/mixins.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/path.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/rotated-flipped.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/spinning.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/stacked.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/variables.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_bordered-pulled.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_core.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_extras.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_fixed-width.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_icons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_larger.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_path.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_rotated-flipped.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_spinning.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_stacked.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/font-awesome.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/jquery/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/jquery/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/jquery/dist/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/jquery/dist/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/jquery/dist/jquery.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/metisMenu/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/metisMenu/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/dist/css/sb-admin-2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/dist/js/sb-admin-2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/less/mixins.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/less/sb-admin-2.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/less/variables.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225638/statistics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/css/dashboard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/css/jquery-ui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/css/jquery-ui.structure.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/css/jquery-ui.theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/css/legends.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/css/theme.blue.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/curvedLines.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/customGraph.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/dashboard-commons.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/dashboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/graph.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/hashtable.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/jquery.cookie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/jquery.flot.stack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/jquery.numberformatter-1.2.3.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/jquery.tablesorter.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/pages/CustomsGraphs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/pages/OverTime.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/pages/ResponseTimes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/pages/Throughput.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/pages/icon-apache.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/dist/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/dist/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot-axislabels/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot-axislabels/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot-axislabels/jquery.flot.axislabels.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot.tooltip/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot.tooltip/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot.tooltip/js/excanvas.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.tooltip.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.tooltip.source.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/API.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/CONTRIBUTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/FAQ.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/NEWS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/PLUGINS.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/component.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/excanvas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/excanvas.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/flot.jquery.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.colorhelpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.canvas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.categories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.crosshair.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.errorbars.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.fillbetween.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.image.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.navigate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.pie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.resize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.selection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.stack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.symbol.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.threshold.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.time.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/.npmignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/bordered-pulled.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/core.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/extras.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/fixed-width.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/font-awesome.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/icons.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/larger.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/list.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/mixins.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/path.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/rotated-flipped.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/spinning.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/stacked.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/variables.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_bordered-pulled.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_core.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_extras.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_fixed-width.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_icons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_larger.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_list.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_path.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_rotated-flipped.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_spinning.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_stacked.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/font-awesome.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/jquery/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/jquery/bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/jquery/dist/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/jquery/dist/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/jquery/dist/jquery.min.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/metisMenu/.bower.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/metisMenu/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/dist/css/sb-admin-2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/dist/js/sb-admin-2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/less/mixins.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/less/sb-admin-2.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/less/variables.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/report-20250812-225927/statistics.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/results-20250812-225638.jtl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/temp/latencyVsRequest/latencyVsRequest16766850659738569621-0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/temp/responseTimeVsRequest/responseTimeVsRequest3175198164698783035-0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-tests/app-under-test.apk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-tests/test/specs/android/smoke.e2e.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-tests/wdio.android.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-tests/wdio.conf.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-tests/cypress/e2e/api.spec.cy.js" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/cypress/e2e/api.spec.cy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-tests/cypress/screenshots/api.spec.cy.js/API Tests - ReqRes -- DELETE apiusers2 - deve deletar um usuário (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-tests/cypress/screenshots/api.spec.cy.js/API Tests - ReqRes -- NEGATIVO - GET apiunknown999 - deve retornar 404 (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-tests/cypress/screenshots/api.spec.cy.js/API Tests - ReqRes -- POST apiusers - deve criar um usuário (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-tests/cypress/screenshots/api.spec.cy.js/API Tests - ReqRes -- PUT apiusers2 - deve atualizar um usuário (failed).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/e2e-tests/cypress.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-tests/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-tests/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-tests/test/specs/login.e2e.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/test/specs/login.e2e.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-tests/wdio.conf.js" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +345,7 @@
         <option value="$PROJECT_DIR$/.idea/modules.xml" />
         <option value="$PROJECT_DIR$/.idea/codeStyles/Project.xml" />
         <option value="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
       </list>
     </option>
   </component>
@@ -62,9 +353,26 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test\specs" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -78,6 +386,7 @@
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -96,7 +405,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -104,5 +415,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Projeto corrigido" />
+    <option name="LAST_COMMIT_MESSAGE" value="Projeto corrigido" />
   </component>
 </project>

@@ -1,11 +1,13 @@
-import { strict as assert } from 'assert'
+import { strict as assert } from 'assert';
 
 describe('Mobile - Login Flow (Fake)', () => {
-  it('deve abrir o app e validar um elemento', async () => {
-    // Com o Fake Driver, podemos simular interações básicas
-    // Exemplo de busca por um elemento inventado
-    const fakeElem = await $('~login_button')
-    // A API do fake driver não valida de verdade, mas o comando não deve falhar
-    assert.ok(true, 'Simulação de validação de elemento passou')
-  })
-})
+  it('deve encontrar o botão de login (via XPath)', async () => {
+    // Procura por QUALQUER nó com atributo name="login_button"
+    const btn = await $('//*[@name="login_button"]');
+    await btn.waitForExist({ timeout: 5000 });
+    const exists = await btn.isExisting();
+    assert.equal(exists, true, 'O botão de login deve existir');
+    // opcional: clique
+    await btn.click();
+  });
+});

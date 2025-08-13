@@ -2,19 +2,18 @@ import { defineConfig } from 'cypress'
 import createBundler from '@bahmutov/cypress-esbuild-preprocessor'
 import { addCucumberPreprocessorPlugin } from '@badeball/cypress-cucumber-preprocessor'
 import createEsbuildPlugin from '@badeball/cypress-cucumber-preprocessor/esbuild'
+import mochawesome from 'cypress-mochawesome-reporter/plugin.js'
 
 export default defineConfig({
   e2e: {
     baseUrl: 'https://www.saucedemo.com',
     specPattern: 'cypress/e2e/**/*.feature',
-    setupNodeEvents(on, config) {
-      // cucumber
-      addCucumberPreprocessorPlugin(on, config)
+    async setupNodeEvents(on, config) {
+      await addCucumberPreprocessorPlugin(on, config)
       on('file:preprocessor', createBundler({
         plugins: [createEsbuildPlugin(config)],
       }))
-      // reporter
-      require('cypress-mochawesome-reporter/plugin')(on)
+      mochawesome(on)
       return config
     },
     chromeWebSecurity: false,
