@@ -15,3 +15,7 @@ load-tests/**/*.jtl
 load-tests/temp/
 **/cypress/videos/
 **/cypress/screenshots/
+load-tests/**/*.jtl
+load-tests/temp/
+**/cypress/videos/
+**/cypress/screenshots/
