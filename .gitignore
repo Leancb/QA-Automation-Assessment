@@ -5,3 +5,9 @@ e2e-tests/cypress/reports/
 mobile-tests/reports/
 load-tests/report/
 load-tests/results.jtl
+# JMeter raw results / temp
+load-tests/**/*.jtl
+load-tests/temp/
+# (opcional) artefatos pesados de testes
+**/cypress/videos/
+**/cypress/screenshots/
