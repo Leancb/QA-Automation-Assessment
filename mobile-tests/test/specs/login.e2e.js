@@ -1,13 +1,12 @@
-import { strict as assert } from 'assert';
+import Login from '../pageobjects/login.po.js';
 
-describe('Mobile - Login Flow (Fake)', () => {
-  it('deve encontrar o botão de login (via XPath)', async () => {
-    // Procura por QUALQUER nó com atributo name="login_button"
-    const btn = await $('//*[@name="login_button"]');
-    await btn.waitForExist({ timeout: 5000 });
-    const exists = await btn.isExisting();
-    assert.equal(exists, true, 'O botão de login deve existir');
-    // opcional: clique
-    await btn.click();
+describe('MyDemoApp - Login', () => {
+  it('abre menu → Log In → autentica e valida', async () => {
+    await Login.navigate();
+    await Login.login('bob@example.com', '10203040'); // credenciais válidas do app
+    await Login.assertLoggedIn();
+
+    await Login.logout();
+    await Login.assertLoggedOut();
   });
 });

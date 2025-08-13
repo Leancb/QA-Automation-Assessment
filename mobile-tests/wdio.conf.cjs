@@ -1,5 +1,6 @@
 // mobile-tests/wdio.conf.cjs
 const path = require('path');
+const appPath = path.resolve(__dirname, 'app/demo.apk');
 
 exports.config = {
   runner: 'local',
@@ -10,7 +11,7 @@ exports.config = {
   framework: 'mocha',
   mochaOpts: { timeout: 120000 },
   connectionRetryTimeout: 120000,
-
+  waitforTimeout: 15000,
   // Conexão com o Appium (que o Actions vai subir)
   hostname: '127.0.0.1',
   port: 4723,
@@ -24,8 +25,11 @@ exports.config = {
     'appium:automationName': 'UiAutomator2',
     'appium:deviceName': 'Android Emulator',
     'appium:platformVersion': '11', // Emulador API 30 (Android 11)
-    'appium:app': path.resolve(__dirname, 'app/app-debug.apk'), // <-- AJUSTE AQUI SE NECESSÁRIO
+    'appium:app': appPath, // <-- AJUSTE AQUI SE NECESSÁRIO
     'appium:autoGrantPermissions': true,
-    'appium:newCommandTimeout': 120
+    'appium:newCommandTimeout': 120,
+    'appium:appWaitActivity': '*',
+    'appium:appWaitDuration': 20000
   }],
+  maxInstances: 1,// deixe 1 para simplificar na primeira execução
 };
