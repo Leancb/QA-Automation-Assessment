@@ -76,51 +76,140 @@ npx cypress run
 ### 3) Mobile – WDIO + Appium
 
 #### 3A) Modo Fake Driver (sem emulador)
-> Útil para CI e para rodar sem Android/Emulador. **Já configurado** no projeto.
+> Útil para CI e para rodar sem Android/Emulador. **Opcional** no projeto.
 
-1. (Uma vez) instalar driver Fake:
+1. (Uma vez) instalar o driver Fake:
 ```bash
 cd mobile-tests
 npm install
 npx appium driver install --source=npm @appium/fake-driver@^5
 ```
+
 2. Criar um app “fake” **XML** simples (se ainda não existe), ex.: `fake-app.xml` com um botão `login_button`.
+
 3. Garantir que no `wdio.conf.cjs` a capability aponta para esse arquivo:
 ```js
 'appium:app': path.join(process.cwd(), 'fake-app.xml')
 ```
+
 4. Subir Appium (terminal 1):
 ```bash
 cd mobile-tests
 npx appium --log-level info --use-drivers=fake
 ```
+
 5. Rodar WDIO (terminal 2):
 ```bash
 cd mobile-tests
-npm test
-# Relatórios: mobile-tests/reports/*.xml
+npx wdio run wdio.conf.cjs
+# Relatórios: mobile-tests/reports/**
 ```
 
 #### 3B) Android real com APK (UiAutomator2)
-> Requer **Android Studio/SDK** + emulador ou dispositivo físico.
+> Requer **Android Studio/SDK** + emulador ou dispositivo físico.  
+> **Importante:** escolha **um** modo de Appium: ou você inicia **externo**, **ou** deixa o **WDIO service** iniciar. **Não use ambos ao mesmo tempo.**
 
-1. Instalar driver Android:
+1. Instalar o driver Android (UiAutomator2):
 ```bash
 cd mobile-tests
 npx appium driver install uiautomator2@latest
 ```
-2. Colocar seu `.apk` em `mobile-tests/apps/app-under-test.apk`.
-3. Criar `wdio.android.cjs` (config Android real) e um spec em `test/specs/android/`.
-4. Iniciar **emulador** ou **conectar device** → `adb devices` deve listar o device.
-5. Subir Appium (terminal 1):
-```bash
-npx appium --log-level info --use-drivers=uiautomator2
+
+2. Colocar seu `.apk` em `mobile-tests/app/app-under-test.apk`
+  - Ex.: `mobile-tests/app/demo.apk`
+
+3. Ajustar `wdio.conf.cjs` (escolha **A** ou **B**):
+
+**A) Usando Appium externo (recomendado para Appium Inspector)**  
+No `wdio.conf.cjs`, conecte no servidor externo e **não** use o service:
+```js
+// wdio.conf.cjs (trecho)
+exports.config = {
+  runner: 'local',
+  hostname: '127.0.0.1',
+  port: 4725,
+  path: '/',
+  services: [], // não iniciar Appium via service
+  capabilities: [{
+    platformName: 'Android',
+    'appium:automationName': 'UiAutomator2',
+    'appium:deviceName': 'Android Emulator',
+    'appium:app': require('path').resolve(__dirname, 'app', 'app-under-test.apk'),
+    'appium:noReset': true,
+    'appium:newCommandTimeout': 240
+    // Se usar device físico:
+    // 'appium:udid': '<serial-ou-emulator-5554>'
+  }],
+  // ...
+}
 ```
-6. Rodar testes Android (terminal 2):
-```bash
-npm run test:android
-# Relatórios: mobile-tests/reports/android-*.xml
+
+**B) Deixando o WDIO iniciar o Appium (service)**  
+No `wdio.conf.cjs`, habilite o service e **não** suba Appium externamente:
+```js
+// wdio.conf.cjs (trecho)
+exports.config = {
+  runner: 'local',
+  services: [[
+    'appium',
+    { args: { address: '127.0.0.1', port: 4723, basePath: '/', relaxedSecurity: true, logLevel: 'warn' } }
+  ]],
+  capabilities: [{
+    platformName: 'Android',
+    'appium:automationName': 'UiAutomator2',
+    'appium:deviceName': 'Android Emulator',
+    'appium:app': require('path').resolve(__dirname, 'app', 'app-under-test.apk'),
+    'appium:noReset': true,
+    'appium:newCommandTimeout': 240
+  }],
+  // ...
+}
 ```
+
+4. Iniciar **emulador** ou **conectar device**  
+   Garanta que o `adb` enxerga um dispositivo como `device`:
+```bash
+adb devices
+# deve listar: emulator-5554    device
+```
+Exemplo de boot do emulador:
+```bash
+emulator -avd Pixel_5_API_30 -no-snapshot-load -gpu swiftshader_indirect -no-boot-anim -noaudio -ports 5554,5555
+adb wait-for-device
+adb shell 'while [[ $(getprop sys.boot_completed) != "1" ]]; do sleep 1; done'
+adb shell input keyevent 82
+adb devices
+```
+
+5. Subir Appium (apenas se escolheu **3B-A Appium externo**):
+```bash
+npx appium --address 127.0.0.1 --port 4725 --base-path / --relaxed-security
+# Se for usar o Inspector no browser, acrescente: --allow-cors
+```
+
+6. Rodar testes Android:
+```bash
+cd mobile-tests
+npx wdio run wdio.conf.cjs
+# Rodar um spec específico:
+npx wdio run wdio.conf.cjs --spec test/specs/forms.e2e.js
+# Relatórios: mobile-tests/reports/**
+```
+
+> Dica (opcional – Appium Inspector): com Appium **externo** ligado, use as capabilities mínimas no Inspector:
+> ```json
+> {
+>   "platformName": "Android",
+>   "appium:automationName": "UiAutomator2",
+>   "appium:deviceName": "Android Emulator",
+>   "appium:udid": "emulator-5554",
+>   "appium:noReset": true,
+>   "appium:newCommandTimeout": 240
+>   // Para instalar APK via Inspector:
+>   // "appium:app": "C:\\caminho\\para\\app-under-test.apk"
+> }
+> ```
+
 
 ### 4) Carga – JMeter
 ```bash

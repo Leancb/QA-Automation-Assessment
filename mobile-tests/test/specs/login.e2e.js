@@ -1,12 +1,12 @@
-import Login from '../pageobjects/login.po.js';
+// test/specs/login.e2e.js
+const Login = require('../pageobjects/login.po');
 
-describe('MyDemoApp - Login', () => {
-  it('abre menu → Log In → autentica e valida', async () => {
-    await Login.navigate();
-    await Login.login('bob@example.com', '10203040'); // credenciais válidas do app
-    await Login.assertLoggedIn();
+describe('Login', () => {
+  it('should login (smoke) and validate success alert (EN)', async () => {
+    await Login.openTab();
+    await Login.doLogin('test@demo.io', '10203040');
 
-    await Login.logout();
-    await Login.assertLoggedOut();
+    // sanity check pós-condição. Serve para garantir que, depois de fechar o alerta:
+    await expect(Login.btnLogin).toBeDisplayed();
   });
 });

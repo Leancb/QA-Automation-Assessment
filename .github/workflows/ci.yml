@@ -102,6 +102,7 @@ jobs:
     name: Mobile (Android - Appium UiAutomator2)
     runs-on: ubuntu-latest
     timeout-minutes: 45
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -139,32 +140,28 @@ jobs:
       - name: Boot emulator (headless)
         run: |
           nohup emulator -avd ci-avd -no-window -no-audio -no-snapshot -no-boot-anim \
-               -gpu swiftshader_indirect -accel auto >/dev/null 2>&1 &
+               -gpu swiftshader_indirect -accel off >/dev/null 2>&1 &
           adb wait-for-device
-          # Espera o Android terminar de bootar
+          # Espera terminar o boot e desbloqueia a tela
           adb shell 'while [[ $(getprop sys.boot_completed) != "1" ]]; do sleep 1; done'
-          # Desbloqueia a tela
           adb shell input keyevent 82
-
-      - name: Install Appium 2 + UiAutomator2 driver
-        run: |
-          npm i -g appium@^2
-          npx appium driver install uiautomator2
-
-      - name: Start Appium server
-        run: |
-          npx appium server --log-level info --use-drivers=uiautomator2 > appium.log 2>&1 &
-          sleep 5
 
       - name: Install project deps (mobile-tests)
         working-directory: mobile-tests
         run: npm ci
 
-      - name: Verify APK exists
+      # Appium v2 precisa do driver instalado no APPIUM_HOME do runner
+      - name: Install Appium UiAutomator2 driver
+        working-directory: mobile-tests
+        run: npx appium driver install uiautomator2
+
+      - name: Verificar APK
         run: ls -lh mobile-tests/app/*.apk
 
+      # Deixe o WDIO subir o Appium via @wdio/appium-service
       - name: Run WDIO tests
-        run: npx wdio run mobile-tests/wdio.conf.cjs | tee wdio.out
+        working-directory: mobile-tests
+        run: npx wdio run wdio.conf.cjs
 
       - name: Upload Mobile logs/artifacts
         if: always()
@@ -172,12 +169,11 @@ jobs:
         with:
           name: mobile-artifacts
           path: |
-            appium.log
-            wdio.out
             mobile-tests/reports/**
           retention-days: 7
 
-  # =======================
+
+    # =======================
   # LOAD TESTS (JMETER)
   # =======================
   load_tests:
