@@ -99,36 +99,14 @@ jobs:
   # =======================
   mobile_tests:
     name: Mobile CI (Android)
-
-     on:
-     push:
-     branches:
-      - main
-        pull_request:
-        branches:
-      - main
-        workflow_dispatch:
-
-        concurrency:
-        group: mobile-${{ github.ref }}
-        cancel-in-progress: true
-
-        permissions:
-        contents: read
-
-        jobs:
-        android-e2e:
-      name: Android E2E on Emulator
-        runs-on: ubuntu-latest
-        timeout-minutes: 45
-
-      env:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
       CI: true
       ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
       ANDROID_HOME: /usr/local/lib/android/sdk
       ADB_INSTALL_TIMEOUT: '20'
       ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL: '20'
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -177,8 +155,9 @@ jobs:
           adb kill-server || true
           adb start-server
 
-          "$ANDROID_HOME/emulator/emulator"
-          -avd ci-avd -no-snapshot -no-boot-anim -no-window -gpu swiftshader_indirect -accel off -skip-adb-auth -camera-back none -camera-front none -memory 2048 >/dev/null 2>&1 &
+          "$ANDROID_HOME/emulator/emulator" -avd ci-avd \
+            -no-snapshot -no-boot-anim -no-window -gpu swiftshader_indirect -accel off \
+            -skip-adb-auth -camera-back none -camera-front none -memory 2048 >/dev/null 2>&1 &
 
           # Wait for ADB device (timeout ~120s)
           for i in $(seq 1 60); do
