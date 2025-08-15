@@ -34,18 +34,313 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mobile-tests/app/demo.apk" afterDir="false" />
+    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="Mobile app atualizado">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/leanc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/.jsdtscope" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.jsdt.ui.superType.container" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.jsdt.ui.superType.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-tests/cypress/e2e/api/tarefa1-basic.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-tests/cypress/e2e/api/tarefa2-crud.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/1-getting-started/todo.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/actions.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/aliasing.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/assertions.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/connectors.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/cookies.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/cypress_api.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/files.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/location.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/misc.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/navigation.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/network_requests.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/querying.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/spies_stubs_clocks.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/storage.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/traversal.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/utilities.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/viewport.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/waiting.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/window.cy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/carrinho.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/carrinho/carrinho.steps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/pages/CheckoutPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/pages/InventoryPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/pages/LoginPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/user.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README_old.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-tests/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/run-wdio.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/run-wdio.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/wdio.conf.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/wdio.conf.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-tests/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-tests/cypress.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/cypress.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-tests/cypress/support/e2e.js" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/cypress/support/e2e.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-tests/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress.config.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/e2e-tests/cypress.config.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/login.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/login/login.steps.js" beforeDir="false" afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/login/login.steps.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/step_definitions/login.steps.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e-tests/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/e2e-tests/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e-tests/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/e2e-tests/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/load-tests/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/dashboard.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/jquery-ui.structure.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/jquery-ui.theme.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/legends.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/css/theme.blue.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/curvedLines.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/customGraph.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/dashboard-commons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/dashboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/graph.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/hashtable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/jquery.cookie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/jquery.flot.stack.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/jquery.numberformatter-1.2.3.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/js/jquery.tablesorter.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/pages/CustomsGraphs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/pages/OverTime.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/pages/ResponseTimes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/pages/Throughput.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/content/pages/icon-apache.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/.bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot-axislabels/.bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot-axislabels/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot-axislabels/jquery.flot.axislabels.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot.tooltip/.bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot.tooltip/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot.tooltip/js/excanvas.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.tooltip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.tooltip.source.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/.bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/API.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/CONTRIBUTING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/FAQ.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/NEWS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/PLUGINS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/component.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/excanvas.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/excanvas.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/flot.jquery.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.colorhelpers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.canvas.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.categories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.crosshair.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.errorbars.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.fillbetween.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.image.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.navigate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.pie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.resize.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.selection.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.stack.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.symbol.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.threshold.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/jquery.flot.time.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/flot/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/.bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/bordered-pulled.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/core.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/extras.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/fixed-width.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/font-awesome.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/icons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/larger.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/list.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/mixins.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/path.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/rotated-flipped.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/spinning.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/stacked.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/less/variables.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_bordered-pulled.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_core.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_extras.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_fixed-width.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_icons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_larger.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_list.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_path.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_rotated-flipped.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_spinning.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_stacked.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/font-awesome/scss/font-awesome.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/jquery/.bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/jquery/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/jquery/dist/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/jquery/dist/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/jquery/dist/jquery.min.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/metisMenu/.bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/metisMenu/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/dist/css/sb-admin-2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/dist/js/sb-admin-2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/less/mixins.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/less/sb-admin-2.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/sbadmin2-1.0.7/less/variables.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225638/statistics.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/css/dashboard.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/css/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/css/jquery-ui.structure.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/css/jquery-ui.theme.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/css/legends.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/css/theme.blue.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/curvedLines.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/customGraph.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/dashboard-commons.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/dashboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/graph.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/hashtable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/jquery.cookie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/jquery.flot.stack.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/jquery.numberformatter-1.2.3.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/js/jquery.tablesorter.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/pages/CustomsGraphs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/pages/OverTime.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/pages/ResponseTimes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/pages/Throughput.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/content/pages/icon-apache.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/.bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot-axislabels/.bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot-axislabels/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot-axislabels/jquery.flot.axislabels.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot.tooltip/.bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot.tooltip/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot.tooltip/js/excanvas.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.tooltip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot.tooltip/js/jquery.flot.tooltip.source.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/.bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/API.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/CONTRIBUTING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/FAQ.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/NEWS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/PLUGINS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/component.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/excanvas.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/excanvas.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/flot.jquery.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.colorhelpers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.canvas.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.categories.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.crosshair.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.errorbars.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.fillbetween.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.image.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.navigate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.pie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.resize.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.selection.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.stack.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.symbol.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.threshold.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/jquery.flot.time.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/flot/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/.bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/bordered-pulled.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/core.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/extras.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/fixed-width.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/font-awesome.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/icons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/larger.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/list.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/mixins.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/path.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/rotated-flipped.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/spinning.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/stacked.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/less/variables.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_bordered-pulled.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_core.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_extras.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_fixed-width.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_icons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_larger.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_list.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_path.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_rotated-flipped.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_spinning.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_stacked.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/font-awesome/scss/font-awesome.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/jquery/.bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/jquery/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/jquery/dist/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/jquery/dist/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/jquery/dist/jquery.min.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/metisMenu/.bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/metisMenu/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/bower_components/metisMenu/dist/metisMenu.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/dist/css/sb-admin-2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/dist/js/sb-admin-2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/less/mixins.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/less/sb-admin-2.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/sbadmin2-1.0.7/less/variables.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/load-tests/report-20250812-225927/statistics.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-tests/test/pageobjects/forms.po.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/test/pageobjects/forms.po.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-tests/test/pageobjects/login.po.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/test/pageobjects/login.po.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-tests/test/specs/forms.e2e.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/test/specs/forms.e2e.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-tests/test/specs/login.e2e.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/test/specs/login.e2e.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +351,16 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
@@ -85,39 +390,55 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mobile-tests/apps" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Projetos\QA-Automation-Assessment" />
-      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\app" />
-      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test\specs" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\apps" />
       <recent name="C:\Projetos\QA-Automation-Assessment" />
       <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\app" />
       <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test" />
       <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test\specs" />
-      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test\pageobjects" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projetos\QA-Automation-Assessment\e2e-tests\cypress\e2e\features" />
+      <recent name="C:\Projetos\QA-Automation-Assessment\e2e-tests\cypress\e2e\step_definitions" />
+      <recent name="C:\Projetos\QA-Automation-Assessment\e2e-tests\cypress\e2e\features\carrinho" />
+      <recent name="C:\Projetos\QA-Automation-Assessment\e2e-tests\cypress\e2e\features\login" />
+      <recent name="C:\Projetos\QA-Automation-Assessment\e2e-tests\cypress\support\step_definitions" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="RunManager">
+    <configuration name="C:/Projetos/QA-Automation-Assessment" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <item itemvalue="Gradle.C:/Projetos/QA-Automation-Assessment" />
       </list>
-    </option>
+    </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -164,7 +485,14 @@
       <option name="project" value="LOCAL" />
       <updated>1755204946562</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Mobile app atualizado">
+      <created>1755217011604</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1755217011604</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -172,13 +500,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -186,6 +513,7 @@
     <MESSAGE value="Correções" />
     <MESSAGE value="Correções de mobile app" />
     <MESSAGE value="Mobile app funcionando, README.md corrigido, ci.yml corrigido" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mobile app funcionando, README.md corrigido, ci.yml corrigido" />
+    <MESSAGE value="Mobile app atualizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mobile app atualizado" />
   </component>
 </project>

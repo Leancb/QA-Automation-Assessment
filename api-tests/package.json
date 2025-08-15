@@ -10,6 +10,8 @@
   },
   "scripts": {
     "test": "cypress run",
-    "posttest": "echo 'Reports em cypress/reports'"
+    "posttest": "echo 'Reports em cypress/reports'",
+    "test:api": "cypress run --spec \"cypress/e2e/api/**/*.cy.js\"",
+    "report:open": "start \"\" \"cypress/reports/html/index.html\""
   }
 }

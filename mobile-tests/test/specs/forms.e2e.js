@@ -1,11 +1,16 @@
 // test/specs/forms.e2e.js
-// Uso assert nativo para evitar o conflito do expect do WDIO no seu ambiente.
 const assert = require('assert');
-const FormsScreen = require('../pageobjects/forms.po');
+const FormsScreen = require('../pageobjects/forms.po'); // <-- caminho corrigido
 
 describe('Forms - cenários', () => {
   before(async () => {
     await FormsScreen.openForms();
+  });
+
+  it('deve digitar no input e refletir em "You have typed:"', async () => {
+    const texto = 'QA Automation';
+    await FormsScreen.typeInInput(texto);
+    await FormsScreen.assertTypedEquals(texto);
   });
 
   it('deve alternar o Switch e atualizar o texto', async () => {
@@ -22,11 +27,8 @@ describe('Forms - cenários', () => {
 
   it('deve selecionar um item no Dropdown', async () => {
     const alvo = 'webdriver.io is awesome';
-
     await FormsScreen.openDropdown();
     await FormsScreen.selectDropdownByText(alvo);
-
-    // ✅ Em vez de ler do contêiner "Dropdown", validamos que o texto escolhido está visível
     await FormsScreen.assertDropdownSelection(alvo);
   });
 
@@ -37,16 +39,16 @@ describe('Forms - cenários', () => {
 
     await FormsScreen.activeBtn.click();
 
-    // espera qualquer botão do diálogo e fecha
     let clicked = false;
     for (const btn of [FormsScreen.dlgOk, FormsScreen.dlgCancel, FormsScreen.dlgAskMeLater]) {
       const visible = await btn.waitForDisplayed({ timeout: 3000 }).then(() => true).catch(() => false);
-      if (visible) {
-        await btn.click();
-        clicked = true;
-        break;
-      }
+      if (visible) { await btn.click(); clicked = true; break; }
     }
     assert.ok(clicked, 'Nenhum botão do diálogo ficou visível para clique.');
+  });
+
+  // pedido: por último, voltar para a Home
+  after(async () => {
+    await FormsScreen.goHome();
   });
 });

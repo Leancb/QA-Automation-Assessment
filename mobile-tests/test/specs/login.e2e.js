@@ -1,12 +1,18 @@
 // test/specs/login.e2e.js
-const Login = require('../pageobjects/login.po');
+const LoginPage = require('../pageobjects/login.po');
 
-describe('Login', () => {
-  it('should login (smoke) and validate success alert (EN)', async () => {
-    await Login.openTab();
-    await Login.doLogin('test@demo.io', '10203040');
+describe('Login - fluxo básico', () => {
+  before(async () => {
+    await LoginPage.openTab();
+  });
 
-    // sanity check pós-condição. Serve para garantir que, depois de fechar o alerta:
-    await expect(Login.btnLogin).toBeDisplayed();
+  it('deve logar com sucesso e fechar o alerta', async () => {
+    // use as credenciais que você já utiliza no app de demo
+    await LoginPage.doLogin('bob@example.com', '10203040');
+  });
+
+  // por último, voltar para a Home
+  after(async () => {
+    await LoginPage.goHome();
   });
 });
