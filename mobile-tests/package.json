@@ -1,21 +1,27 @@
 {
     "name": "mobile-tests",
     "version": "1.0.0",
-    "description": "",
+    "description": "WDIO + Appium mobile automation",
     "main": "index.js",
+    "type": "commonjs",
     "scripts": {
         "test": "cross-env NODE_OPTIONS= wdio run wdio.conf.cjs",
         "test:login": "cross-env NODE_OPTIONS= wdio run wdio.conf.cjs --spec ./test/specs/login.e2e.js",
         "test:form": "cross-env NODE_OPTIONS= wdio run wdio.conf.cjs --spec ./test/specs/forms.e2e.js",
-        "report": "allure generate reports/allure-results --clean -o reports/allure-report",
-        "report:open": "allure open reports/allure-report",
+        "test:android": "cross-env NODE_OPTIONS= wdio run wdio.conf.cjs",
         "driver:uia2": "appium driver install uiautomator2",
-        "wdio": "wdio run ./wdio.conf.ts"
+        "report:allure:generate": "allure generate ./reports/allure/raw --clean -o ./reports/allure/html",
+        "report:allure:open": "allure open ./reports/allure/html",
+        "test:all": "wdio run wdio.conf.ts",
+        "report:clean": "rimraf reports/allure/raw reports/allure/html",
+        "report:gen":   "allure generate reports/allure/raw --clean -o reports/allure/html",
+        "report:open":  "allure open reports/allure/html",
+        "test:allure":  "npm run report:clean && npm run test:all && npm run report:gen && npm run report:open"
+
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "type": "commonjs",
     "devDependencies": {
         "@wdio/allure-reporter": "^9.19.1",
         "@wdio/appium-service": "^9.19.1",
@@ -29,6 +35,7 @@
         "appium-uiautomator2-driver": "^4.2.8",
         "cross-env": "^10.0.0",
         "expect-webdriverio": "^5.4.1",
+        "rimraf": "^6.0.1",
         "webdriverio": "^9.19.1"
     }
 }

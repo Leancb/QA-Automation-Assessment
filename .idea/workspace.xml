@@ -34,37 +34,18 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="Mobile app funcionando">
-      <change afterPath="$PROJECT_DIR$/mobile-tests/.tmp/actual/flashAlert-chrome-945x1020-dpr-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/_debug/activity.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/_debug/screen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/_debug/source.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/apps/demo.apk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/run-wdio.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/test/specs/__snapshots__/flashAlert-chrome-945x1020-dpr-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/test/specs/test.e2e.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/test/wdio.conf.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/uidump.xm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/wdio.conf.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mobile-tests/app/demo.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/app/app-debug.apk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/app/demo.apk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/artifacts/source-login.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README_old.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-tests/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile-tests/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mobile-tests/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/test/pageobjects/drawer.po.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/test/pageobjects/forms.po.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/test/pageobjects/forms.po.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/test/pageobjects/login.po.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/test/pageobjects/login.po.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/test/pageobjects/menu.po.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/test/pageobjects/menu.po.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/test/specs/forms.e2e.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/test/specs/forms.e2e.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/test/specs/login.e2e.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/test/specs/login.e2e.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/wdio.android.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobile-tests/wdio.conf.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-tests/run-wdio.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/run-wdio.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-tests/wdio.conf.ts" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-tests/wdio.conf.ts" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,23 +85,39 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mobile-tests/test/specs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test\specs" />
-      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test\pageobjects" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projetos\QA-Automation-Assessment" />
       <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\app" />
       <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test\specs" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projetos\QA-Automation-Assessment" />
+      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\app" />
+      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test" />
+      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test\specs" />
+      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test\pageobjects" />
+    </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -160,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1755082166351</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Mobile app funcionando, README.md corrigido, ci.yml corrigido">
+      <created>1755204946562</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1755204946562</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,18 +172,20 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Projeto corrigido" />
     <MESSAGE value="Correções" />
     <MESSAGE value="Correções de mobile app" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correções de mobile app" />
+    <MESSAGE value="Mobile app funcionando, README.md corrigido, ci.yml corrigido" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mobile app funcionando, README.md corrigido, ci.yml corrigido" />
   </component>
 </project>
