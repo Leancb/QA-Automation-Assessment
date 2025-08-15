@@ -97,32 +97,32 @@ jobs:
   # =======================
   # MOBILE TESTS (APPIUM + ANDROID EMULATOR)
   # =======================
+  mobile_tests:
+    name: Mobile CI (Android)
 
-name: Mobile CI (Android)
-
-on:
-  push:
-    branches:
+     on:
+     push:
+     branches:
       - main
-  pull_request:
-    branches:
+        pull_request:
+        branches:
       - main
-  workflow_dispatch:
+        workflow_dispatch:
 
-concurrency:
-  group: mobile-${{ github.ref }}
-  cancel-in-progress: true
+        concurrency:
+        group: mobile-${{ github.ref }}
+        cancel-in-progress: true
 
-permissions:
-  contents: read
+        permissions:
+        contents: read
 
-jobs:
-  android-e2e:
-    name: Android E2E on Emulator
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
+        jobs:
+        android-e2e:
+      name: Android E2E on Emulator
+        runs-on: ubuntu-latest
+        timeout-minutes: 45
 
-    env:
+      env:
       CI: true
       ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
       ANDROID_HOME: /usr/local/lib/android/sdk
