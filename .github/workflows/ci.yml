@@ -135,15 +135,30 @@ jobs:
             ~/.android/adb
           key: avd-${{ runner.os }}-api-30-default-x86_64-v1
 
-      - name: Create AVD (if cache miss)
-        if: steps.avd-cache.outputs.cache-hit != 'true'
+      - name: Ensure SDK & AVD (idempotent)
+        shell: bash
         run: |
-          sdkmanager --install "platform-tools" "platforms;android-30" "system-images;android-30;default;x86_64" "emulator"
-          echo "no" | avdmanager create avd -n ci-avd -k "system-images;android-30;default;x86_64" --device "pixel"
-          cat <<'EOF' >> "$HOME/.android/avd/ci-avd.avd/config.ini"
-          hw.keyboard=yes
-          showDeviceFrame=no
-          EOF
+          set -euo pipefail
+
+          # 1) Garante pacotes necessários
+             sdkmanager --install "platform-tools" "emulator" "platforms;android-30" "system-images;android-30;default;x86_64"
+             yes | sdkmanager --licenses >/dev/null
+
+             # 2) Cria o AVD se não existir (idempotente)
+             AVD_DIR="$HOME/.android/avd/ci-avd.avd"
+             if [ ! -f "$AVD_DIR/config.ini" ]; then
+               echo "Creating AVD ci-avd..."
+               echo "no" | avdmanager create avd -n ci-avd -k "system-images;android-30;default;x86_64" --device "pixel"
+             else
+               echo "AVD ci-avd already exists."
+             fi
+
+             # 3) Garante diretório e acrescenta configs com segurança
+             mkdir -p "$AVD_DIR"
+             {
+               echo "hw.keyboard=yes"
+               echo "showDeviceFrame=no"
+             } >> "$AVD_DIR/config.ini"
 
       - name: Install project deps
         run: npm ci
