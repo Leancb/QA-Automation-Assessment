@@ -138,22 +138,24 @@ jobs:
       - name: Ensure SDK & AVD (idempotent)
         shell: bash
         run: |
-          set -euo pipefail
+          set -eu  # (sem 'pipefail' para não quebrar o 'yes | ...')
 
-          # 1) Garante pacotes necessários
+             # 1) SDK e pacotes necessários
              sdkmanager --install "platform-tools" "emulator" "platforms;android-30" "system-images;android-30;default;x86_64"
-             yes | sdkmanager --licenses >/dev/null
 
-             # 2) Cria o AVD se não existir (idempotente)
+             # 2) Aceita licenças; ignore erro de SIGPIPE do 'yes'
+             { yes | sdkmanager --licenses >/dev/null 2>&1; } || true
+
+             # 3) Cria AVD se não existir
              AVD_DIR="$HOME/.android/avd/ci-avd.avd"
              if [ ! -f "$AVD_DIR/config.ini" ]; then
                echo "Creating AVD ci-avd..."
-               echo "no" | avdmanager create avd -n ci-avd -k "system-images;android-30;default;x86_64" --device "pixel"
+               printf 'no\n' | avdmanager create avd -n ci-avd -k "system-images;android-30;default;x86_64" --device "pixel"
              else
                echo "AVD ci-avd already exists."
              fi
 
-             # 3) Garante diretório e acrescenta configs com segurança
+             # 4) Garante diretório e acrescenta configs com segurança
              mkdir -p "$AVD_DIR"
              {
                echo "hw.keyboard=yes"
