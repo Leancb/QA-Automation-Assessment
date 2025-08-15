@@ -97,53 +97,131 @@ jobs:
   # =======================
   # MOBILE TESTS (APPIUM + ANDROID EMULATOR)
   # =======================
-mobile_tests:
-  name: Mobile (Android - Appium UiAutomator2)
-  runs-on: ubuntu-latest
-  timeout-minutes: 50
 
-  steps:
-    - uses: actions/checkout@v4
+name: Mobile CI (Android)
 
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '22'
-        cache: 'npm'
-        cache-dependency-path: mobile-tests/package-lock.json
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
-    - uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '17'
+concurrency:
+  group: mobile-${{ github.ref }}
+  cancel-in-progress: true
 
-    - name: Install deps
-      working-directory: mobile-tests
-      run: npm ci
+permissions:
+  contents: read
 
-    - name: Install Appium UiAutomator2 driver
-      working-directory: mobile-tests
-      run: npx appium driver install uiautomator2
+jobs:
+  android-e2e:
+    name: Android E2E on Emulator
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
 
-    - name: Run tests on emulator
-      uses: reactivecircus/android-emulator-runner@v2
-      with:
-        api-level: 30
-        target: google_apis
-        arch: x86_64
-        profile: pixel
-        emulator-options: -no-window -no-snapshot -no-boot-anim -gpu swiftshader_indirect
-        disable-animations: true
-        script: |
+    env:
+      CI: true
+      ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+      ANDROID_HOME: /usr/local/lib/android/sdk
+      ADB_INSTALL_TIMEOUT: '20'
+      ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL: '20'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Cache AVD
+        id: avd-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.android/avd
+            ~/.android/adb
+          key: avd-${{ runner.os }}-api-30-default-x86_64-v1
+
+      - name: Create AVD (if cache miss)
+        if: steps.avd-cache.outputs.cache-hit != 'true'
+        run: |
+          sdkmanager --install "platform-tools" "platforms;android-30" "system-images;android-30;default;x86_64" "emulator"
+          echo "no" | avdmanager create avd -n ci-avd -k "system-images;android-30;default;x86_64" --device "pixel"
+          cat <<'EOF' >> "$HOME/.android/avd/ci-avd.avd/config.ini"
+          hw.keyboard=yes
+          showDeviceFrame=no
+          EOF
+
+      - name: Install project deps
+        run: npm ci
+
+      - name: Boot Android emulator (headless, robust)
+        shell: bash
+        run: |
+          set -euo pipefail
+          adb kill-server || true
+          adb start-server
+
+          "$ANDROID_HOME/emulator/emulator"
+          -avd ci-avd -no-snapshot -no-boot-anim -no-window -gpu swiftshader_indirect -accel off -skip-adb-auth -camera-back none -camera-front none -memory 2048 >/dev/null 2>&1 &
+
+          # Wait for ADB device (timeout ~120s)
+          for i in $(seq 1 60); do
+            if adb wait-for-device; then
+              break
+            fi
+            sleep 2
+          done
+
+          # Wait for full boot (timeout ~300s)
+          for i in $(seq 1 300); do
+            if adb shell getprop sys.boot_completed 2>/dev/null | grep -q "1"; then
+              echo "Emulator booted."
+              break
+            fi
+            sleep 1
+          done
+
+          if ! adb shell getprop sys.boot_completed 2>/dev/null | grep -q "1"; then
+            echo "Failed to boot emulator in time."
+            adb -s emulator-5554 emu kill || true
+            exit 1
+          fi
+
+          # Unlock & disable animations
+          adb shell input keyevent 82 || true
+          adb shell settings put global window_animation_scale 0 || true
+          adb shell settings put global transition_animation_scale 0 || true
+          adb shell settings put global animator_duration_scale 0 || true
           adb devices
-          npx wdio run wdio.conf.cjs
 
-    - name: Upload Mobile logs/artifacts
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: mobile-artifacts
-        path: mobile-tests/reports/**
-        retention-days: 7
+      - name: Run mobile tests
+        run: npm run test:login
+
+      - name: Dump logcat on failure
+        if: failure()
+        run: adb -s emulator-5554 logcat -d | tail -n 5000 || true
+
+      - name: Shutdown emulator
+        if: always()
+        run: adb -s emulator-5554 emu kill || true
+
+
 
   # =======================
   # LOAD TESTS (JMETER)
