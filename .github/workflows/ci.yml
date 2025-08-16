@@ -224,56 +224,54 @@ jobs:
   k6_load_test:
     name: Load Test (K6)
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    defaults:
-      run:
-        working-directory: k6-load-tests
+    timeout-minutes: 25
     steps:
       - name: Checkout
+        # (se você usa checkout com path custom, ajuste os 'working-directory' abaixo)
         uses: actions/checkout@v4
 
-      - name: (debug) Ver estrutura
+      # Debug: mostra conteúdo na raiz do repo e na pasta do K6
+      - name: (debug) Repo root
         run: |
-          echo "PWD=$(pwd)"
+          echo "ROOT=$(pwd)"
           ls -la
-          ls -la src || true
+          ls -la k6-load-tests || true
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+      # Instala o k6 nativamente (sem Docker)
+      - name: Install k6 (apt)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gnupg ca-certificates
+          curl -fsSL https://dl.k6.io/key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/k6-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+          sudo apt-get update
+          sudo apt-get install -y k6
+          k6 version
+
+      # Instala deps do analisador (package.json dentro de k6-load-tests)
       - name: Install analyzer deps
+        working-directory: k6-load-tests
         run: npm i
 
-      - name: Run K6 (500 VUs / 5m) + export summary (mounted out dir)
+      # Roda k6 exportando o summary diretamente na pasta correta
+      - name: Run K6 (500 VUs / 5m) + export summary
+        working-directory: k6-load-tests
         env:
-          BASE_URL: ${{ vars.K6_BASE_URL }} # opcional
+          # Opcional: defina em Settings → Variables como K6_BASE_URL
+          BASE_URL: ${{ vars.K6_BASE_URL }}
         run: |
-          set -eu
-          mkdir -p .k6-out
-
-          # Garante que o script existe
           test -f src/basic_load_test.js || (echo "ERRO: src/basic_load_test.js não existe em $(pwd)"; exit 1)
-
-          # Roda k6 no container e exporta o summary para uma pasta montada
-          docker run --rm \
-            -e BASE_URL="${BASE_URL:-}" \
-            -v "$PWD":/work -w /work \
-            grafana/k6:latest run \
-            --summary-export=/work/.k6-out/summary.json \
-            src/basic_load_test.js
-
-          echo "Arquivos depois do k6:"
+          k6 run --summary-export=summary.json src/basic_load_test.js
+          echo "Após k6:"
           ls -la
-          echo "Arquivos em .k6-out:"
-          ls -la .k6-out || true
-
-          # Move o summary.json para o diretório onde o analyze espera
-          test -f .k6-out/summary.json || (echo "ERRO: .k6-out/summary.json não foi gerado"; exit 1)
-          mv .k6-out/summary.json summary.json
 
       - name: Generate analysis (analysis.md)
+        working-directory: k6-load-tests
         run: npm run analyze
 
       - name: Upload K6 artifacts
