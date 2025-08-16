@@ -136,13 +136,13 @@ jobs:
       # Sobe o emulador e executa seus testes no 'script'
       - name: Run emulator and tests
         uses: reactivecircus/android-emulator-runner@v2
-         with:
-           api-level: 30
-           target: default
-           arch: x86_64
-           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio
-           disable-animations: true
-           script: |
+        with:
+          api-level: 30
+          target: default
+          arch: x86_64
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio
+          disable-animations: true
+          script: |
               set -eu
               # Se existir subpasta mobile-tests, roda lá; senão, roda na raiz
               if [ -d mobile-tests ] && [ -f mobile-tests/package.json ]; then
