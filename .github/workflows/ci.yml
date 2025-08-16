@@ -123,119 +123,34 @@ jobs:
           node-version: '20'
           cache: npm
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Cache AVD
-        id: avd-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.android/avd
-            ~/.android/adb
-          key: avd-${{ runner.os }}-api-30-default-x86_64-v1
-
-      - name: Ensure SDK & AVD (idempotent)
-        shell: bash
-        run: |
-          set -eu  # (sem 'pipefail' para não quebrar o 'yes | ...')
-
-             # 1) SDK e pacotes necessários
-             sdkmanager --install "platform-tools" "emulator" "platforms;android-30" "system-images;android-30;default;x86_64"
-
-             # 2) Aceita licenças; ignore erro de SIGPIPE do 'yes'
-             { yes | sdkmanager --licenses >/dev/null 2>&1; } || true
-
-             # 3) Cria AVD se não existir
-             AVD_DIR="$HOME/.android/avd/ci-avd.avd"
-             if [ ! -f "$AVD_DIR/config.ini" ]; then
-               echo "Creating AVD ci-avd..."
-               printf 'no\n' | avdmanager create avd -n ci-avd -k "system-images;android-30;default;x86_64" --device "pixel"
-             else
-               echo "AVD ci-avd already exists."
-             fi
-
-             # 4) Garante diretório e acrescenta configs com segurança
-             mkdir -p "$AVD_DIR"
-             {
-               echo "hw.keyboard=yes"
-               echo "showDeviceFrame=no"
-             } >> "$AVD_DIR/config.ini"
-
+      # Instala dependências do projeto mobile (ajuste se seu package.json estiver em outra pasta)
       - name: Install project deps
         run: npm ci
 
-      - name: Boot Android emulator (robusto c/ serial e log)
-        shell: bash
-        run: |
-          set -euxo pipefail
-
-          # Limpa sessões anteriores
-          adb kill-server || true
-          pkill -f "emulator.*ci-avd" || true
-          rm -f ~/.android/adb/adbkey* || true
-
-          # Inicia emulador direcionando log
-          "$ANDROID_HOME/emulator/emulator" \
-            -avd ci-avd \
-            -port 5554 \
-            -no-snapshot -no-snapshot-save -wipe-data \
-            -no-boot-anim -no-audio -no-window \
-            -gpu swiftshader_indirect -accel off \
-            -netdelay none -netspeed full \
-            >/tmp/emulator-ci.log 2>&1 &
-
-          echo "Aguardando dispositivo (emulator-5554)..."
-          # Espera dispositivo aparecer
-          if ! timeout 120s adb -s emulator-5554 wait-for-device; then
-            echo "::error::Timeout esperando adb device"; tail -n 200 /tmp/emulator-ci.log || true; exit 1
-          fi
-
-          echo "Aguardando boot completo..."
-          SECS=0
-          until adb -s emulator-5554 shell getprop sys.boot_completed | grep -q "1"; do
-            sleep 2
-            SECS=$((SECS+2))
-            adb devices || true
-            if [ "$SECS" -ge 600 ]; then
-              echo "::error::Timeout em sys.boot_completed"; tail -n 200 /tmp/emulator-ci.log || true; exit 1
-            fi
-          done
-
-          # Sinais adicionais (não bloqueantes, só logam)
-          adb -s emulator-5554 shell getprop dev.bootcomplete || true
-          adb -s emulator-5554 shell getprop init.svc.bootanim || true
-
-          echo "Desbloqueando e desligando animações..."
-          adb -s emulator-5554 shell input keyevent 82 || true
-          adb -s emulator-5554 shell settings put global window_animation_scale 0 || true
-          adb -s emulator-5554 shell settings put global transition_animation_scale 0 || true
-          adb -s emulator-5554 shell settings put global animator_duration_scale 0 || true
-
-          adb -s emulator-5554 devices -l
-
-      - name: Run emulator
+      # Sobe o emulador e executa seus testes no 'script'
+      - name: Run emulator and tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
-          target: default
+          target: default         # mantém 'default' como no seu YAML
           arch: x86_64
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio
           disable-animations: true
           script: |
-            npm run test:login
+            set -euo pipefail
+            npm run test:login     # ajuste se o comando for diferente
 
-
-      - name: Run mobile tests
-        run: npm run test:login
-
-      - name: Dump logcat on failure
-        if: failure()
-        run: adb -s emulator-5554 logcat -d | tail -n 5000 || true
-
-      - name: Shutdown emulator
+      # (Opcional) Faça upload de artefatos/relatórios do mobile, se existirem
+      - name: Upload mobile artifacts (logs/screenshots)
         if: always()
-        run: adb -s emulator-5554 emu kill || true
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-artifacts
+          path: |
+            mobile-tests/reports/**
+            mobile-tests/logs/**
+            mobile-tests/screenshots/**
+          retention-days: 7
 
   # =======================
   # LOAD TESTS (K6)
