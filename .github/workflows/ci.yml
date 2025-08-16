@@ -138,6 +138,7 @@ jobs:
           disable-animations: true
           script: |
             set -eu
+            cd mobile-tests
             npm run test:login
 
       # (Opcional) Faça upload de artefatos/relatórios do mobile, se existirem
