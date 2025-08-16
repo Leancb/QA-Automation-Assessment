@@ -225,6 +225,7 @@ jobs:
     name: Load Test (K6)
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    # needs: [e2e_tests, mobile_tests]  # opcional: rode depois dos outros jobs
     defaults:
       run:
         working-directory: k6-load-tests
@@ -246,13 +247,21 @@ jobs:
       - name: Install analyzer deps
         run: npm i
 
-      - name: Run K6 (500 VUs / 5m) via Docker
+      - name: Run K6 (500 VUs / 5m) via Docker + export summary
         env:
-          # Opcional: defina BASE_URL em Settings → Variables/Secrets
-          # BASE_URL: https://httpbin.org
+          # defina BASE_URL em Settings > Variables/Secrets se quiser sobrescrever
           BASE_URL: ${{ env.BASE_URL }}
         run: |
-          docker run --rm -v "$PWD":/tests -w /tests grafana/k6:latest run src/basic_load_test.js
+          # Executa o K6 dentro do container, montando a pasta do projeto
+          docker run --rm \
+            -e BASE_URL="$BASE_URL" \
+            -v "$PWD":/tests -w /tests \
+            grafana/k6:latest run \
+            --summary-export=summary.json \
+            src/basic_load_test.js
+
+          echo "Arquivos gerados:"
+          ls -la
 
       - name: Generate analysis (analysis.md)
         run: npm run analyze
@@ -268,6 +277,7 @@ jobs:
             k6-load-tests/summary.txt
             k6-load-tests/analysis.md
           retention-days: 7
+
 
 
   # =======================
