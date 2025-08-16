@@ -225,7 +225,6 @@ jobs:
     name: Load Test (K6)
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    # needs: [e2e_tests, mobile_tests]  # opcional: rode depois dos outros jobs
     defaults:
       run:
         working-directory: k6-load-tests
@@ -233,11 +232,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: (debug) List repo tree
+      - name: (debug) Ver estrutura
         run: |
-          pwd
+          echo "PWD=$(pwd)"
           ls -la
-          ls -la k6-load-tests || true
+          ls -la src || true
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -247,21 +246,27 @@ jobs:
       - name: Install analyzer deps
         run: npm i
 
-      - name: Run K6 (500 VUs / 5m) via Docker + export summary
+      - name: Run K6 (500 VUs / 5m) + export summary (ABS path)
         env:
-          # defina BASE_URL em Settings > Variables/Secrets se quiser sobrescrever
-          BASE_URL: ${{ env.BASE_URL }}
+          # Opcional: defina em Settings → Variables como K6_BASE_URL
+          BASE_URL: ${{ vars.K6_BASE_URL }}
         run: |
-          # Executa o K6 dentro do container, montando a pasta do projeto
+          # Garante que o script existe no diretório atual (k6-load-tests)
+          test -f src/basic_load_test.js || (echo "ERRO: src/basic_load_test.js não existe em $(pwd)"; exit 1)
+
+          # Executa k6 dentro do container, montando a pasta atual
           docker run --rm \
             -e BASE_URL="$BASE_URL" \
             -v "$PWD":/tests -w /tests \
             grafana/k6:latest run \
-            --summary-export=summary.json \
+            --summary-export=/tests/summary.json \
             src/basic_load_test.js
 
-          echo "Arquivos gerados:"
+          echo "Arquivos gerados após o k6:"
           ls -la
+
+          # Falha cedo se o summary.json não existir
+          test -f summary.json || (echo "ERRO: summary.json não foi gerado"; exit 1)
 
       - name: Generate analysis (analysis.md)
         run: npm run analyze
@@ -277,6 +282,7 @@ jobs:
             k6-load-tests/summary.txt
             k6-load-tests/analysis.md
           retention-days: 7
+
 
 
 
