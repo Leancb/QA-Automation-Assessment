@@ -41,14 +41,18 @@ export const config: Options.Testrunner = {
     // Se quiser amarrar no emulador específico:
     // 'appium:udid': process.env.UDID || 'emulator-5554',
 
-     'appium:app': path.join(__dirname, 'app', 'demo.apk'),
+    'appium:app': path.join(__dirname, 'app', 'demo.apk'),
     'appium:noReset': true,
     'appium:newCommandTimeout': 240,
 
     // timeouts mais folgados p/ boot/conexão
     'appium:adbExecTimeout': 120000,
     'appium:uiautomator2ServerInstallTimeout': 120000,
-    'appium:uiautomator2ServerLaunchTimeout': 120000
+    'appium:uiautomator2ServerLaunchTimeout': 120000,
+
+    // ✅ Correções para seu erro
+    'appium:ignoreHiddenApiPolicyError': true,
+    'appium:disableWindowAnimation': true
   }],
 
   logLevel: 'info',
@@ -111,6 +115,5 @@ export const config: Options.Testrunner = {
  * services: [
  *   ['appium', {
  *     args: { address: '127.0.0.1', port: 4723, basePath: '/', relaxedSecurity: true, logLevel: 'warn' }
- *   }]
- * ],
+ *   }]]
  */

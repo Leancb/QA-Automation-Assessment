@@ -94,61 +94,71 @@ jobs:
             e2e-tests/cypress/screenshots/**
           retention-days: 7
 
-  # =======================
-  # MOBILE TESTS (APPIUM + ANDROID EMULATOR)
-  # =======================
-  mobile_tests:
-    name: Mobile CI (Android)
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
-    env:
-      CI: true
-      ADB_INSTALL_TIMEOUT: '20'
-      ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL: '20'
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Java 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
-
-      - name: Setup Node 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: npm
-
-      # Tudo acontece dentro do emulador-runner
-      - name: Run mobile tests on Android emulator
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 30
-          target: default
-          arch: x86_64
-          profile: pixel_6
-          emulator-options: -no-snapshot -no-audio -no-window -gpu swiftshader_indirect
-          script: |
-            if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests ci; else npm ci; fi
-            if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:clean || true; else npm run report:clean || true; fi
-            if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run test:all || npm --prefix mobile-tests run test:e2e || npm --prefix mobile-tests test; else npm run test:all || npm run test:e2e || npm test; fi
-            if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:gen || true; else npm run report:gen || true; fi
-            if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:open || true; else npm run report:open || true; fi
-            adb logcat -d > logcat.txt || true
-            ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"; ART_DIR="$ROOT/ci-mobile-artifacts"; mkdir -p "$ART_DIR"; for p in allure-results allure-report reports logs screenshots logcat.txt; do [ -e "mobile-tests/$p" ] && cp -R "mobile-tests/$p" "$ART_DIR"/ || true; [ -e "$p" ] && cp -R "$p" "$ART_DIR"/ || true; done; ls -la "$ART_DIR" || true
 
 
-      - name: Upload mobile artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: mobile-artifacts
-          path: ci-mobile-artifacts/**
-          if-no-files-found: warn
-          retention-days: 7
+
+# =======================
+# MOBILE TESTS (APPIUM + ANDROID EMULATOR)
+# =======================
+mobile_tests:
+  name: Mobile CI (Android)
+  runs-on: ubuntu-latest
+  timeout-minutes: 45
+  env:
+    CI: true
+    ADB_INSTALL_TIMEOUT: '20'
+    ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL: '20'
+
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Java 17
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: '17'
+
+    - name: Setup Node 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: npm
+        # Se o package.json estiver em mobile-tests, isso ajuda o cache:
+        cache-dependency-path: |
+          package-lock.json
+          mobile-tests/package-lock.json
+
+    - name: Run mobile tests on Android emulator
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 30
+        # (opcional) mais estável em alguns ambientes:
+        # target: google_apis
+        target: default
+        arch: x86_64
+        profile: pixel_6
+        emulator-options: -no-snapshot -no-audio -no-window -no-boot-anim -gpu swiftshader_indirect
+        script: |
+          # espera o serviço 'settings' aparecer (roda como /bin/sh: uma linha só)
+          adb shell 'for i in $(seq 1 60); do cmd -l | grep -q "settings" && exit 0; sleep 1; done' || true
+
+          if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests ci; else npm ci; fi
+          if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:clean || true; else npm run report:clean || true; fi
+          if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run test:all || npm --prefix mobile-tests run test:e2e || npm --prefix mobile-tests test; else npm run test:all || npm run test:e2e || npm test; fi
+          if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:gen || true; else npm run report:gen || true; fi
+          if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:open || true; else npm run report:open || true; fi
+          adb logcat -d > logcat.txt || true
+          ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"; ART_DIR="$ROOT/ci-mobile-artifacts"; mkdir -p "$ART_DIR"; for p in allure-results allure-report reports logs screenshots logcat.txt; do [ -e "mobile-tests/$p" ] && cp -R "mobile-tests/$p" "$ART_DIR"/ || true; [ -e "$p" ] && cp -R "$p" "$ART_DIR"/ || true; done; ls -la "$ART_DIR" || true
+
+    - name: Upload mobile artifacts
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: mobile-artifacts
+        path: ci-mobile-artifacts/**
+        if-no-files-found: warn
+        retention-days: 7
 
 
   # =======================
