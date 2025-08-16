@@ -132,7 +132,9 @@ jobs:
           profile: pixel_6
           emulator-options: -no-snapshot -no-audio -no-window -gpu swiftshader_indirect
           script: |
-            set -euo pipefail
+            bash -eo pipefail <<'BASH'
+            set -u
+
             if [ -d mobile-tests ] && [ -f mobile-tests/package.json ]; then
               cd mobile-tests
             fi
@@ -152,6 +154,8 @@ jobs:
               [ -e "$p" ] && cp -R "$p" "$ART_DIR"/ || true
             done
             ls -la "$ART_DIR" || true
+            BASH
+
 
       - name: Upload mobile artifacts
         if: always()
