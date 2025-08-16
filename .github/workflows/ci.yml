@@ -142,19 +142,19 @@ jobs:
           arch: x86_64
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio
           disable-animations: true
-          script: |
-              set -eu
-              # se existir subpasta mobile-tests com package.json, entra nela
-              if [ -d mobile-tests ] && [ -f mobile-tests/package.json ]; then cd mobile-tests; fi
-              # tenta um dos comandos abaixo, na ordem; se nenhum existir, lista scripts e falha
-              npm run test:login \
-              || npm run test:e2e \
-              || npm test \
-              || ( [ -f wdio.conf.ts ] && npx wdio run wdio.conf.ts ) \
-              || ( [ -f wdio.conf.js ] && npx wdio run wdio.conf.js ) \
-              || ( grep -q '"detox"' package.json 2>/dev/null && npx detox test --configuration android.emu.release ) \
-              || ( [ -f gradlew ] && ./gradlew connectedAndroidTest ) \
-              || ( echo "Nenhum comando de testes encontrado. Scripts disponíveis:" >&2; npm run || true; exit 1 )
+          # Executa tudo em UMA chamada via bash, com fallback automático
+          script: >
+            bash -lc 'set -euo pipefail;
+            if [ -d mobile-tests ] && [ -f mobile-tests/package.json ]; then cd mobile-tests; fi;
+            npm run test:login ||
+            npm run test:e2e ||
+            npm test ||
+            { [ -f wdio.conf.ts ] && npx wdio run wdio.conf.ts; } ||
+            { [ -f wdio.conf.js ] && npx wdio run wdio.conf.js; } ||
+            { grep -q "\"detox\"" package.json 2>/dev/null && npx detox test --configuration android.emu.release; } ||
+            { [ -f gradlew ] && ./gradlew connectedAndroidTest; } ||
+            { echo "Nenhum comando de testes encontrado. Scripts disponíveis:" >&2; npm run || true; exit 1; }'
+
 
       # (Opcional) Faça upload de artefatos/relatórios do mobile, se existirem
       - name: Upload mobile artifacts (logs/screenshots)
