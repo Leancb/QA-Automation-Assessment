@@ -125,7 +125,7 @@ jobs:
 
       # Instala dependências do projeto mobile (ajuste se seu package.json estiver em outra pasta)
       - name: Install project deps (mobile)
-          run: |
+        run: |
             if [ -d mobile-tests ] && [ -f mobile-tests/package.json ]; then
               cd mobile-tests && npm ci
             else
