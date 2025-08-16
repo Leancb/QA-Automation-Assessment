@@ -225,13 +225,18 @@ jobs:
     name: Load Test (K6)
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    # needs: [e2e_tests, mobile_tests]  # opcional: habilite se quiser rodar o K6 depois desses jobs
     defaults:
       run:
-        working-directory: k6
+        working-directory: k6-load-tests
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: (debug) List repo tree
+        run: |
+          pwd
+          ls -la
+          ls -la k6-load-tests || true
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -242,8 +247,8 @@ jobs:
         run: npm i
 
       - name: Run K6 (500 VUs / 5m) via Docker
-        # Dica: defina BASE_URL em secrets/vars do Actions ou deixe o default do script
         env:
+          # Opcional: defina BASE_URL em Settings → Variables/Secrets
           # BASE_URL: https://httpbin.org
           BASE_URL: ${{ env.BASE_URL }}
         run: |
@@ -258,11 +263,12 @@ jobs:
         with:
           name: k6-report
           path: |
-            k6/summary.html
-            k6/summary.json
-            k6/summary.txt
-            k6/analysis.md
+            k6-load-tests/summary.html
+            k6-load-tests/summary.json
+            k6-load-tests/summary.txt
+            k6-load-tests/analysis.md
           retention-days: 7
+
 
   # =======================
   # LOAD TESTS (JMETER)

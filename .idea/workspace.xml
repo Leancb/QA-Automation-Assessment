@@ -35,14 +35,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/k6-load-tests/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k6-load-tests/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k6-load-tests/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k6-load-tests/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k6-load-tests/src/basic_load_test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k6-load-tests/tools/analyze.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1755301436653</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Subindo o K6">
+      <created>1755305911732</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1755305911732</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,6 +260,7 @@
     <MESSAGE value="Mobile app funcionando, README.md corrigido, ci.yml corrigido" />
     <MESSAGE value="Mobile app atualizado" />
     <MESSAGE value="Cy.yml corrigido" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cy.yml corrigido" />
+    <MESSAGE value="Subindo o K6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Subindo o K6" />
   </component>
 </project>
