@@ -140,20 +140,20 @@ jobs:
           api-level: 30
           target: default
           arch: x86_64
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio -accel off -no-boot-anim -no-metrics
           disable-animations: true
-          # Executa tudo em UMA chamada via bash, com fallback automático
           script: >
             bash -lc 'set -euo pipefail;
+            # entra na subpasta se existir
             if [ -d mobile-tests ] && [ -f mobile-tests/package.json ]; then cd mobile-tests; fi;
-            npm run test:login ||
-            npm run test:e2e ||
-            npm test ||
-            { [ -f wdio.conf.ts ] && npx wdio run wdio.conf.ts; } ||
-            { [ -f wdio.conf.js ] && npx wdio run wdio.conf.js; } ||
-            { grep -q "\"detox\"" package.json 2>/dev/null && npx detox test --configuration android.emu.release; } ||
-            { [ -f gradlew ] && ./gradlew connectedAndroidTest; } ||
-            { echo "Nenhum comando de testes encontrado. Scripts disponíveis:" >&2; npm run || true; exit 1; }'
+            # roda a sequência do allure sem abrir browser
+            npm run report:clean || true;
+            npm run test:all;
+            npm run report:gen;
+            # abrir o allure no CI não é necessário; ignore erro
+            npm run report:open || true;
+            # lista o que foi gerado
+            ls -la || true; ls -la allure-results 2>/dev/null || true; ls -la allure-report 2>/dev/null || true;'
 
 
       # (Opcional) Faça upload de artefatos/relatórios do mobile, se existirem
