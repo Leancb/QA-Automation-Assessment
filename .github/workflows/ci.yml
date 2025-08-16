@@ -217,7 +217,52 @@ jobs:
         if: always()
         run: adb -s emulator-5554 emu kill || true
 
+  # =======================
+  # LOAD TESTS (K6)
+  # =======================
 
+  k6_load_test:
+    name: Load Test (K6)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # needs: [e2e_tests, mobile_tests]  # opcional: habilite se quiser rodar o K6 depois desses jobs
+    defaults:
+      run:
+        working-directory: k6
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install analyzer deps
+        run: npm i
+
+      - name: Run K6 (500 VUs / 5m) via Docker
+        # Dica: defina BASE_URL em secrets/vars do Actions ou deixe o default do script
+        env:
+          # BASE_URL: https://httpbin.org
+          BASE_URL: ${{ env.BASE_URL }}
+        run: |
+          docker run --rm -v "$PWD":/tests -w /tests grafana/k6:latest run src/basic_load_test.js
+
+      - name: Generate analysis (analysis.md)
+        run: npm run analyze
+
+      - name: Upload K6 artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: k6-report
+          path: |
+            k6/summary.html
+            k6/summary.json
+            k6/summary.txt
+            k6/analysis.md
+          retention-days: 7
 
   # =======================
   # LOAD TESTS (JMETER)
