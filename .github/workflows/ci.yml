@@ -247,37 +247,36 @@ jobs:
         run: npm i
 
       - name: Run K6 (500 VUs / 5m) + export summary (mounted out dir)
-      env:
-        BASE_URL: ${{ vars.K6_BASE_URL }} # opcional (ou remove e usa o default do script)
-      run: |
-        set -eu
-        mkdir -p .k6-out
+        env:
+          BASE_URL: ${{ vars.K6_BASE_URL }} # opcional
+        run: |
+          set -eu
+          mkdir -p .k6-out
 
-        # Garante que o script existe
-        test -f src/basic_load_test.js || (echo "ERRO: src/basic_load_test.js não existe em $(pwd)"; exit 1)
+          # Garante que o script existe
+          test -f src/basic_load_test.js || (echo "ERRO: src/basic_load_test.js não existe em $(pwd)"; exit 1)
 
-        # Roda k6 no container e exporta o summary para uma pasta montada
-        docker run --rm \
-        -e BASE_URL="${BASE_URL:-}" \
-        -v "$PWD":/work -w /work \
-        grafana/k6:latest run \
-        --summary-export=/work/.k6-out/summary.json \
-        src/basic_load_test.js
+          # Roda k6 no container e exporta o summary para uma pasta montada
+          docker run --rm \
+            -e BASE_URL="${BASE_URL:-}" \
+            -v "$PWD":/work -w /work \
+            grafana/k6:latest run \
+            --summary-export=/work/.k6-out/summary.json \
+            src/basic_load_test.js
 
-        echo "Arquivos depois do k6:"
-        ls -la
-        echo "Arquivos em .k6-out:"
-        ls -la .k6-out || true
+          echo "Arquivos depois do k6:"
+          ls -la
+          echo "Arquivos em .k6-out:"
+          ls -la .k6-out || true
 
-        # Move o summary.json para o diretório onde o analyze espera
-        test -f .k6-out/summary.json || (echo "ERRO: .k6-out/summary.json não foi gerado"; exit 1)
-        mv .k6-out/summary.json summary.json
+          # Move o summary.json para o diretório onde o analyze espera
+          test -f .k6-out/summary.json || (echo "ERRO: .k6-out/summary.json não foi gerado"; exit 1)
+          mv .k6-out/summary.json summary.json
 
-        - name: Generate analysis (analysis.md)
-      run: npm run analyze
+      - name: Generate analysis (analysis.md)
+        run: npm run analyze
 
-
-        - name: Upload K6 artifacts
+      - name: Upload K6 artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -288,7 +287,6 @@ jobs:
             k6-load-tests/summary.txt
             k6-load-tests/analysis.md
           retention-days: 7
-
 
 
 
