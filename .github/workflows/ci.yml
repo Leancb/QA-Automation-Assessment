@@ -133,23 +133,26 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
-          # (opcional) mais estável em alguns ambientes:
-          # target: google_apis
           target: default
           arch: x86_64
           profile: pixel_6
           emulator-options: -no-snapshot -no-audio -no-window -no-boot-anim -gpu swiftshader_indirect
           script: |
-            # espera o serviço 'settings' aparecer (roda como /bin/sh: uma linha só)
             adb shell 'for i in $(seq 1 60); do cmd -l | grep -q "settings" && exit 0; sleep 1; done' || true
 
             if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests ci; else npm ci; fi
             if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:clean || true; else npm run report:clean || true; fi
             if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run test:all || npm --prefix mobile-tests run test:e2e || npm --prefix mobile-tests test; else npm run test:all || npm run test:e2e || npm test; fi
             if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:gen || true; else npm run report:gen || true; fi
-            if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:open || true; else npm run report:open || true; fi
+
+            # só abre o Allure localmente (fora do CI) — em UMA linha
+            if [ -z "$CI" ]; then if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:open || true; else npm run report:open || true; fi; fi
+
             adb logcat -d > logcat.txt || true
-            ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"; ART_DIR="$ROOT/ci-mobile-artifacts"; mkdir -p "$ART_DIR"; for p in allure-results allure-report reports logs screenshots logcat.txt; do [ -e "mobile-tests/$p" ] && cp -R "mobile-tests/$p" "$ART_DIR"/ || true; [ -e "$p" ] && cp -R "$p" "$ART_DIR"/ || true; done; ls -la "$ART_DIR" || true
+
+            ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"; ART_DIR="$ROOT/ci-mobile-artifacts"; mkdir -p "$ART_DIR"
+            for p in allure-results allure-report reports logs screenshots logcat.txt; do [ -e "mobile-tests/$p" ] && cp -R "mobile-tests/$p" "$ART_DIR"/ || true; [ -e "$p" ] && cp -R "$p" "$ART_DIR"/ || true; done
+            ls -la "$ART_DIR" || true
 
       - name: Upload mobile artifacts
         if: always()
@@ -160,6 +163,16 @@ jobs:
           if-no-files-found: warn
           retention-days: 7
 
+      - name: Upload Allure HTML
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-html
+          path: |
+            mobile-tests/reports/allure/html/**
+            reports/allure/html/**
+          if-no-files-found: ignore
+          retention-days: 7
 
   # =======================
   # LOAD TESTS (K6)
