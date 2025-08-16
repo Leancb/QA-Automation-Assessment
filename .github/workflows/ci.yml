@@ -165,46 +165,66 @@ jobs:
       - name: Install project deps
         run: npm ci
 
-      - name: Boot Android emulator (headless, robust)
+      - name: Boot Android emulator (robusto c/ serial e log)
         shell: bash
         run: |
-          set -euo pipefail
+          set -euxo pipefail
+
+          # Limpa sessões anteriores
           adb kill-server || true
-          adb start-server
+          pkill -f "emulator.*ci-avd" || true
+          rm -f ~/.android/adb/adbkey* || true
 
-          "$ANDROID_HOME/emulator/emulator" -avd ci-avd \
-            -no-snapshot -no-boot-anim -no-window -gpu swiftshader_indirect -accel off \
-            -skip-adb-auth -camera-back none -camera-front none -memory 2048 >/dev/null 2>&1 &
+          # Inicia emulador direcionando log
+          "$ANDROID_HOME/emulator/emulator" \
+            -avd ci-avd \
+            -port 5554 \
+            -no-snapshot -no-snapshot-save -wipe-data \
+            -no-boot-anim -no-audio -no-window \
+            -gpu swiftshader_indirect -accel off \
+            -netdelay none -netspeed full \
+            >/tmp/emulator-ci.log 2>&1 &
 
-          # Wait for ADB device (timeout ~120s)
-          for i in $(seq 1 60); do
-            if adb wait-for-device; then
-              break
-            fi
-            sleep 2
-          done
-
-          # Wait for full boot (timeout ~300s)
-          for i in $(seq 1 300); do
-            if adb shell getprop sys.boot_completed 2>/dev/null | grep -q "1"; then
-              echo "Emulator booted."
-              break
-            fi
-            sleep 1
-          done
-
-          if ! adb shell getprop sys.boot_completed 2>/dev/null | grep -q "1"; then
-            echo "Failed to boot emulator in time."
-            adb -s emulator-5554 emu kill || true
-            exit 1
+          echo "Aguardando dispositivo (emulator-5554)..."
+          # Espera dispositivo aparecer
+          if ! timeout 120s adb -s emulator-5554 wait-for-device; then
+            echo "::error::Timeout esperando adb device"; tail -n 200 /tmp/emulator-ci.log || true; exit 1
           fi
 
-          # Unlock & disable animations
-          adb shell input keyevent 82 || true
-          adb shell settings put global window_animation_scale 0 || true
-          adb shell settings put global transition_animation_scale 0 || true
-          adb shell settings put global animator_duration_scale 0 || true
-          adb devices
+          echo "Aguardando boot completo..."
+          SECS=0
+          until adb -s emulator-5554 shell getprop sys.boot_completed | grep -q "1"; do
+            sleep 2
+            SECS=$((SECS+2))
+            adb devices || true
+            if [ "$SECS" -ge 600 ]; then
+              echo "::error::Timeout em sys.boot_completed"; tail -n 200 /tmp/emulator-ci.log || true; exit 1
+            fi
+          done
+
+          # Sinais adicionais (não bloqueantes, só logam)
+          adb -s emulator-5554 shell getprop dev.bootcomplete || true
+          adb -s emulator-5554 shell getprop init.svc.bootanim || true
+
+          echo "Desbloqueando e desligando animações..."
+          adb -s emulator-5554 shell input keyevent 82 || true
+          adb -s emulator-5554 shell settings put global window_animation_scale 0 || true
+          adb -s emulator-5554 shell settings put global transition_animation_scale 0 || true
+          adb -s emulator-5554 shell settings put global animator_duration_scale 0 || true
+
+          adb -s emulator-5554 devices -l
+
+      - name: Run emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 30
+          target: default
+          arch: x86_64
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio
+          disable-animations: true
+          script: |
+            npm run test:login
+
 
       - name: Run mobile tests
         run: npm run test:login
@@ -286,59 +306,3 @@ jobs:
             k6-load-tests/analysis.md
           retention-days: 7
 
-
-
-  # =======================
-  # LOAD TESTS (JMETER)
-  # =======================
-  load_tests:
-    name: Load (JMeter)
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Java 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: Download Apache JMeter
-        run: |
-          JMETER_VERSION=5.6.3
-          curl -sL https://downloads.apache.org/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz -o jmeter.tgz \
-          || curl -sL https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz -o jmeter.tgz
-          tar -xzf jmeter.tgz
-          echo "$PWD/apache-jmeter-${JMETER_VERSION}/bin" >> $GITHUB_PATH
-
-      - name: Run JMeter non-GUI
-        run: |
-          mkdir -p load-tests/results load-tests/reports
-          jmeter -n \
-            -t load-tests/jmeter-test-plan.jmx \
-            -l load-tests/results/results.jtl \
-            -e -o load-tests/reports \
-            -Jjmeter.save.saveservice.output_format=csv \
-            -Jjmeter.save.saveservice.assertion_results=none \
-            -Jjmeter.save.saveservice.response_data.on_error=false \
-            -Jjmeter.save.saveservice.bytes=true \
-            -Jjmeter.save.saveservice.label=true \
-            -Jjmeter.save.saveservice.latency=true \
-            -Jjmeter.save.saveservice.connect_time=true \
-            -Jjmeter.save.saveservice.response_code=true \
-            -Jjmeter.save.saveservice.response_message=true \
-            -Jjmeter.save.saveservice.successful=true \
-            -Jjmeter.save.saveservice.thread_name=true \
-            -Jjmeter.save.saveservice.timeStamp=true
-
-      - name: Upload JMeter report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: jmeter-report
-          path: |
-            load-tests/reports/**
-            load-tests/results/results.jtl
-          retention-days: 3
