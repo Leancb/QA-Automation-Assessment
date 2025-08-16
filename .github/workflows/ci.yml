@@ -135,38 +135,26 @@ jobs:
 
       # Sobe o emulador e executa seus testes no 'script'
       - name: Run emulator and tests
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 30
-          target: default
-          arch: x86_64
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio
-          disable-animations: true
-          script: |
+          uses: reactivecircus/android-emulator-runner@v2
+          with:
+            api-level: 30
+            target: default
+            arch: x86_64
+            emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio
+            disable-animations: true
+            script: |
               set -eu
-              # Se existir subpasta mobile-tests, roda lá; senão, roda na raiz
-              if [ -d mobile-tests ] && [ -f mobile-tests/package.json ]; then
-                cd mobile-tests
-              fi
-
-              # Escolhe automaticamente um comando de testes disponível
-              if node -e 'process.exit(require("./package.json")?.scripts?.["test:login"]?0:1)'; then
-                npm run test:login
-              elif node -e 'process.exit(require("./package.json")?.scripts?.["test:e2e"]?0:1)'; then
-                npm run test:e2e
-              elif node -e 'process.exit(require("./package.json")?.scripts?.test?0:1)'; then
-                npm test
-              elif [ -f wdio.conf.ts ] || [ -f wdio.conf.js ]; then
-                npx wdio run "$( [ -f wdio.conf.ts ] && echo wdio.conf.ts || echo wdio.conf.js )"
-              elif grep -q '"detox"' package.json 2>/dev/null; then
-                npx detox test --configuration android.emu.release
-              elif [ -f gradlew ]; then
-                ./gradlew connectedAndroidTest
-              else
-                echo "Não encontrei comando de testes. Scripts disponíveis:" >&2
-                npm run || true
-                exit 1
-              fi
+              # se existir subpasta mobile-tests com package.json, entra nela
+              if [ -d mobile-tests ] && [ -f mobile-tests/package.json ]; then cd mobile-tests; fi
+              # tenta um dos comandos abaixo, na ordem; se nenhum existir, lista scripts e falha
+              npm run test:login \
+              || npm run test:e2e \
+              || npm test \
+              || ( [ -f wdio.conf.ts ] && npx wdio run wdio.conf.ts ) \
+              || ( [ -f wdio.conf.js ] && npx wdio run wdio.conf.js ) \
+              || ( grep -q '"detox"' package.json 2>/dev/null && npx detox test --configuration android.emu.release ) \
+              || ( [ -f gradlew ] && ./gradlew connectedAndroidTest ) \
+              || ( echo "Nenhum comando de testes encontrado. Scripts disponíveis:" >&2; npm run || true; exit 1 )
 
       # (Opcional) Faça upload de artefatos/relatórios do mobile, se existirem
       - name: Upload mobile artifacts (logs/screenshots)
