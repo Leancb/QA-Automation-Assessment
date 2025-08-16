@@ -145,14 +145,21 @@ jobs:
             if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run test:all || npm --prefix mobile-tests run test:e2e || npm --prefix mobile-tests test; else npm run test:all || npm run test:e2e || npm test; fi
             if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:gen || true; else npm run report:gen || true; fi
 
-            # só abre o Allure localmente (fora do CI) — em UMA linha
+            # só abre o Allure localmente (fora do CI) — one-liner
             if [ -z "$CI" ]; then if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:open || true; else npm run report:open || true; fi; fi
 
             adb logcat -d > logcat.txt || true
 
-            ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"; ART_DIR="$ROOT/ci-mobile-artifacts"; mkdir -p "$ART_DIR"
+            # 👇 GARANTE pasta dentro do workspace do GitHub
+            ART_DIR="${GITHUB_WORKSPACE:-$PWD}/ci-mobile-artifacts"
+            mkdir -p "$ART_DIR"
+
+            # copia de mobile-tests/ e da raiz (se existirem) — one-liner
             for p in allure-results allure-report reports logs screenshots logcat.txt; do [ -e "mobile-tests/$p" ] && cp -R "mobile-tests/$p" "$ART_DIR"/ || true; [ -e "$p" ] && cp -R "$p" "$ART_DIR"/ || true; done
+
+            echo "Artifacts em: $ART_DIR"
             ls -la "$ART_DIR" || true
+
 
       - name: Upload mobile artifacts
         if: always()
