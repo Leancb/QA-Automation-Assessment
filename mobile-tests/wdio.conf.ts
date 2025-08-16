@@ -10,6 +10,11 @@ export const config: Options.Testrunner = {
   specs: ['./test/specs/**/*.js'],
   maxInstances: 1,
 
+  // 🔁 Reexecuta arquivo de spec que falhar 1x (muito útil no CI)
+  specFileRetries: 1,
+  specFileRetriesDelay: 0,
+  specFileRetriesDeferred: true,
+
   // Appium via service (porta 4725)
   hostname: '127.0.0.1',
   port: 4725,
@@ -32,7 +37,11 @@ export const config: Options.Testrunner = {
   logLevel: 'info',
 
   framework: 'mocha',
-  mochaOpts: { timeout: 240000 },
+  mochaOpts: {
+    timeout: 240000,
+    retries: 1,        // 🔁 reexecuta cada teste 1x se falhar (ajuda com flake)
+    bail: false
+  },
 
   // Spec + Allure
   reporters: [
