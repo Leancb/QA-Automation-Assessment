@@ -32,6 +32,15 @@ exports.config = {
     'appium:newCommandTimeout': 240,
     'appium:enforceXPath1': true,
 
+    // ✅ Estabilidade no CI (não altera o fluxo do app)
+    'appium:ignoreHiddenApiPolicyError': true,
+    'appium:disableWindowAnimation': true,
+
+    // ✅ Timeouts mais folgados para evitar quedas por timing
+    'appium:adbExecTimeout': 120000,
+    'appium:uiautomator2ServerInstallTimeout': 120000,
+    'appium:uiautomator2ServerLaunchTimeout': 120000,
+
     // Se você estiver usando ADB em porta custom (ex.: 5038), descomente:
     // 'appium:adbPort': 5038,
   }],
