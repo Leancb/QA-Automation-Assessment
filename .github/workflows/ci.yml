@@ -132,13 +132,13 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
-          target: default         # mantém 'default' como no seu YAML
+          target: default
           arch: x86_64
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio
           disable-animations: true
           script: |
-            set -euo pipefail
-            npm run test:login     # ajuste se o comando for diferente
+            set -eu
+            npm run test:login
 
       # (Opcional) Faça upload de artefatos/relatórios do mobile, se existirem
       - name: Upload mobile artifacts (logs/screenshots)
