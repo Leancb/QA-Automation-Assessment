@@ -103,10 +103,9 @@ jobs:
     timeout-minutes: 45
     env:
       CI: true
-      ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
-      ANDROID_HOME: /usr/local/lib/android/sdk
       ADB_INSTALL_TIMEOUT: '20'
       ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL: '20'
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -123,59 +122,46 @@ jobs:
           node-version: '20'
           cache: npm
 
-      # Instala dependências do projeto mobile (ajuste se seu package.json estiver em outra pasta)
-      - name: Install project deps (mobile)
-        run: |
-            if [ -d mobile-tests ] && [ -f mobile-tests/package.json ]; then
-              cd mobile-tests && npm ci
-            else
-              # Se seus testes ficam na raiz, mantém npm ci na raiz
-              npm ci
-            fi
-
-      # Sobe o emulador e executa seus testes no 'script'
-      - name: Run emulator and tests
+      # Tudo acontece dentro do emulador-runner
+      - name: Run mobile tests on Android emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
           target: default
           arch: x86_64
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio -accel off -no-boot-anim -no-metrics
-          disable-animations: true
-          # Executa tudo em UMA shell; coleta artefatos ao final
-          script: >
-            bash -lc 'set -euo pipefail;
-            # entra na subpasta se existir
-            if [ -d mobile-tests ] && [ -f mobile-tests/package.json ]; then cd mobile-tests; fi;
-            # sua sequência (evita quebrar se o open falhar)
-            npm run report:clean || true;
-            npm run test:all || npm run test:e2e || npm test;
-            npm run report:gen || true;
-            npm run report:open || true;
-            # captura logcat antes do shutdown do emulador
-            adb logcat -d > logcat.txt || true;
-            # junta tudo em uma pasta única na raiz do repo
-            ROOT=\"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\";
-            ART_DIR=\"$ROOT/ci-mobile-artifacts\";
-            mkdir -p \"$ART_DIR\";
+          profile: pixel_6
+          emulator-options: -no-snapshot -no-audio -no-window -gpu swiftshader_indirect
+          script: |
+            set -euo pipefail
+            if [ -d mobile-tests ] && [ -f mobile-tests/package.json ]; then
+              cd mobile-tests
+            fi
+
+            npm ci
+            npm run report:clean || true
+            npm run test:all || npm run test:e2e || npm test
+            npm run report:gen || true
+            npm run report:open || true
+
+            adb logcat -d > logcat.txt || true
+
+            ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+            ART_DIR="$ROOT/ci-mobile-artifacts"
+            mkdir -p "$ART_DIR"
             for p in allure-results allure-report reports logs screenshots logcat.txt; do
-              [ -e \"$p\" ] && cp -r \"$p\" \"$ART_DIR\"/ 2>/dev/null || true;
-            done;
-            echo \"Arquivos coletados:\"; find \"$ART_DIR\" -maxdepth 2 -type f | head -n 200 || true;'
+              [ -e "$p" ] && cp -R "$p" "$ART_DIR"/ || true
+            done
+            ls -la "$ART_DIR" || true
 
-
-
-      # (Opcional) Faça upload de artefatos/relatórios do mobile, se existirem
-      - name: Upload mobile artifacts (logs/screenshots)
+      - name: Upload mobile artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: mobile-artifacts
-          path: |
-            mobile-tests/reports/**
-            mobile-tests/logs/**
-            mobile-tests/screenshots/**
+          path: ci-mobile-artifacts/**
+          if-no-files-found: warn
           retention-days: 7
+
 
   # =======================
   # LOAD TESTS (K6)
