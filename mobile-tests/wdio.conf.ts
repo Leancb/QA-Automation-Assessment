@@ -3,19 +3,19 @@ import type { Options } from '@wdio/types'
 import path from 'path'
 import allure from '@wdio/allure-reporter'
 
+// >>> Força Allure a salvar SEMPRE em mobile-tests/reports/allure/raw
+const isInsideMobileTests = /(^|[\\/])mobile-tests([\\/])?$/.test(__dirname)
+const ALLURE_RAW = isInsideMobileTests
+  ? path.resolve(__dirname, 'reports', 'allure', 'raw')
+  : path.resolve(__dirname, 'mobile-tests', 'reports', 'allure', 'raw')
+
 export const config: Options.Testrunner = {
   runner: 'local',
 
-  // Seus specs .js
   specs: ['./test/specs/**/*.js'],
   maxInstances: 1,
 
-  // 🔁 Reexecuta arquivo de spec que falhar 1x (muito útil no CI)
-  specFileRetries: 1,
-  specFileRetriesDelay: 0,
-  specFileRetriesDeferred: true,
-
-  // Appium via service (porta 4725)
+  // Appium via service
   hostname: '127.0.0.1',
   port: 4725,
   path: '/',
@@ -37,17 +37,13 @@ export const config: Options.Testrunner = {
   logLevel: 'info',
 
   framework: 'mocha',
-  mochaOpts: {
-    timeout: 240000,
-    retries: 1,        // 🔁 reexecuta cada teste 1x se falhar (ajuda com flake)
-    bail: false
-  },
+  mochaOpts: { timeout: 240000 },
 
-  // Spec + Allure
+  // Spec + Allure (escrevendo no ALLURE_RAW calculado acima)
   reporters: [
     'spec',
     ['allure', {
-      outputDir: path.resolve(process.cwd(), 'reports', 'allure', 'raw'),
+      outputDir: ALLURE_RAW,
       disableWebdriverStepsReporting: true,
       disableWebdriverScreenshotsReporting: false
     }] as any
@@ -58,20 +54,11 @@ export const config: Options.Testrunner = {
     platformName: 'Android',
     'appium:automationName': 'UiAutomator2',
     'appium:deviceName': process.env.DEVICE_NAME || 'Android Emulator',
-    // 'appium:udid': process.env.UDID || 'emulator-5554',
-    // 'appium:avd': 'Pixel_5_API_30',
-
-    // APK local (mantém o que já funciona)
     'appium:app': path.join(__dirname, 'app', 'demo.apk'),
-
     'appium:noReset': true,
     'appium:newCommandTimeout': 240,
-
-    // Estabilidade no CI (não muda fluxo)
     'appium:ignoreHiddenApiPolicyError': true,
     'appium:disableWindowAnimation': true,
-
-    // Timeouts folgados
     'appium:adbExecTimeout': 120000,
     'appium:uiautomator2ServerInstallTimeout': 120000,
     'appium:uiautomator2ServerLaunchTimeout': 120000,

@@ -468,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1755396261200</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Mobile gera relatorio">
+      <created>1755397837320</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1755397837320</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -493,6 +500,7 @@
     <MESSAGE value="Cy.yml corrigido" />
     <MESSAGE value="Subindo o K6" />
     <MESSAGE value="Mobile corrigindo esteira" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mobile corrigindo esteira" />
+    <MESSAGE value="Mobile gera relatorio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mobile gera relatorio" />
   </component>
 </project>
