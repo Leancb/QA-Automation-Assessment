@@ -8,7 +8,7 @@ Repositório de avaliação com **quatro frentes de teste** e **CI (GitHub Actio
 - **Mobile** – WebdriverIO + Appium **(+ Allure)**
   - **Android real (APK com UiAutomator2)** → `mobile-tests/` (padrão)
   - **Fake Driver (CI-friendly)** → habilite com `USE_FAKE=1`
-- **Carga** – JMeter (dashboard HTML) → `load-tests/`
+- **Carga** – K6 (dashboard HTML) → `load-tests/`
 
 ---
 
@@ -21,7 +21,7 @@ Repositório de avaliação com **quatro frentes de teste** e **CI (GitHub Actio
   - [3) Mobile – WDIO + Appium](#3-mobile--wdio--appium)
     - [3A) Android real com APK (UiAutomator2)](#3a-android-real-com-apk-uiautomator2)
     - [3B) Modo Fake Driver (sem emulador)](#3b-modo-fake-driver-sem-emulador)
-  - [4) Carga – JMeter](#4-carga--jmeter)
+  - [4) Carga – K6](#4-carga--k6)
 - [CI/CD – GitHub Actions](#cicd--github-actions)
 - [Relatórios: prints e links](#relatórios-prints-e-links)
 - [Soluções de problemas (Windows)](#soluções-de-problemas-windows)
@@ -34,7 +34,7 @@ Repositório de avaliação com **quatro frentes de teste** e **CI (GitHub Actio
 ├── api-tests/                # Cypress para APIs (reqres.in)
 ├── e2e-tests/                # Cypress + Cucumber (SauceDemo)
 ├── mobile-tests/             # WDIO + Appium (Android real ou Fake Driver) + Allure
-├── load-tests/               # JMeter
+├── load-tests/               # K6 scripts e relatórios
 └── .github/workflows/ci.yml  # Pipeline CI
 ```
 
@@ -43,14 +43,14 @@ Repositório de avaliação com **quatro frentes de teste** e **CI (GitHub Actio
 ## Pré-requisitos (Windows)
 
 - **Node.js 18+** (recomendado 20 ou 22) → `node -v`
-- **Java 17+** (para Appium/JMeter) → `java -version`
+- **Java 17+** (para Appium) → `java -version`
 - **Git**
 - **Android (para APK em emulador/dispositivo)**: Android Studio + SDK/Emulator/Platform-Tools
   - Abra **SDK Manager** e instale: *Android SDK Platform (API 30+), Build-Tools, Emulator, Platform-Tools*.
   - Crie um **AVD** (ex.: Pixel API 30) em **Device Manager**.
 - **Allure** (CLI via `npx allure`, já referenciado nos comandos)
-- **JMeter** (local opcional; o CI instala automaticamente)
-  - Se quiser local: baixe o JMeter ou use `choco install jmeter` (se usar Chocolatey).
+- **K6** (para testes de carga)
+  - Instale via [site oficial](https://k6.io/docs/getting-started/installation/) ou `choco install k6` (no Windows, se usar Chocolatey).
 
 > **Dica CRLF/LF**: para evitar avisos de final de linha, adicione `.gitattributes` com `* text=auto` e normalize (`git add --renormalize .`).
 
@@ -80,7 +80,7 @@ npx cypress run
 #### 3A) Android real com APK (UiAutomator2)
 > Requer **Android Studio/SDK** + emulador ou dispositivo físico.
 
-1) **APK do app**: coloque em `mobile-tests/app/demo.apk` (ou aponte outro caminho via `ANDROID_APP`).  
+1) **APK do app**: coloque em `mobile-tests/app/demo.apk` (ou aponte outro caminho via `ANDROID_APP`).
 2) **Device**: inicie emulador ou plugue um device e confira:
 ```bash
 adb devices
@@ -97,7 +97,7 @@ cd mobile-tests
 npm install
 npx wdio run wdio.conf.ts
 ```
-   **Apenas um arquivo**:
+**Apenas um arquivo**:
 ```bash
 npx wdio run wdio.conf.ts --spec test/specs/login.e2e.js
 ```
@@ -113,7 +113,7 @@ npx wdio run wdio.conf.ts --spec test/specs/login.e2e.js
 cd mobile-tests
 npx appium driver install --source=npm @appium/fake-driver@^5
 ```
-2) **App fake (XML)**: deixe um arquivo simples (ex.: `fake-app.xml`).  
+2) **App fake (XML)**: deixe um arquivo simples (ex.: `fake-app.xml`).
 3) **Rodar com Fake** (Appium manual, se quiser ver logs):
 ```bash
 npx appium --address 127.0.0.1 --port 4725 --base-path / --relaxed-security --allow-cors --log-level info --use-drivers fake
@@ -135,13 +135,20 @@ npx allure generate --clean --output allure-report allure-results
 npx allure open ./allure-report
 ```
 
-### 4) Carga – JMeter
+### 4) Carga – K6
 ```bash
 cd load-tests
-## Se JMeter estiver instalado no PATH:
-jmeter -n -t jmeter-test-plan.jmx -l results.jtl -e -o report
-## Abra: load-tests/report/index.html
+## Execute o teste principal:
+k6 run k6-test.js
+
+## Para gerar relatório HTML (usando k6-reporter ou extensão):
+# Exemplo usando k6-reporter (opcional, veja docs):
+k6 run --out json=results.json k6-test.js
+# Gere o HTML (se usar k6-reporter):
+npx k6-reporter results.json
+# O relatório estará em load-tests/report.html (ou equivalente)
 ```
+> Consulte o README em `load-tests/` para detalhes de customização, parâmetros e outros formatos de saída.
 
 ---
 
@@ -151,14 +158,14 @@ O pipeline (`.github/workflows/ci.yml`) roda em **push** e **pull_request** com 
 - **api_tests** → Cypress API (Mochawesome)
 - **e2e_tests** → Cypress + Cucumber (Mochawesome)
 - **mobile_tests** → WDIO + Appium **Fake Driver** no CI (**Allure**)
-- **load_tests** → JMeter (HTML dashboard)
+- **load_tests** → K6 (JSON e/ou HTML dashboard)
 
 **Artifacts gerados** por job:
 - `api-tests-report` → `api-tests/cypress/reports/*.html`
 - `e2e-tests-report` → `e2e-tests/cypress/reports/*.html`
 - `mobile-allure-results` → `mobile-tests/allure-results/*`
 - `mobile-allure-report` → `mobile-tests/allure-report/*`
-- `jmeter-report` → `load-tests/report/*`
+- `k6-report` → `load-tests/report.html` (ou JSON, conforme configuração)
 
 Para baixar: **Aba Actions → execução → Artifacts** (canto direito).
 
@@ -192,13 +199,13 @@ Para baixar: **Aba Actions → execução → Artifacts** (canto direito).
   ```
 ![Allure Mobile](docs/allure-mobile-report.png)
 
-### JMeter (Dashboard HTML)
-- Caminho local: `load-tests/report/index.html`
+### K6 (Dashboard/HTML)
+- Caminho local: `load-tests/report.html` (ou outro, conforme configuração)
 - Abertura:
   ```bash
-  cd load-tests && explorer.exe report
+  cd load-tests && explorer.exe report.html
   ```
-![JMeter Dashboard](docs/jmeter-dashboard.png)
+![K6 Dashboard](docs/k6-dashboard.png)
 
 > **Dica:** Você pode substituir as *prints* acima por **screenshots reais** após a primeira execução, mantendo os nomes em `docs/` para o README exibi-las automaticamente.
 
@@ -215,9 +222,13 @@ Para baixar: **Aba Actions → execução → Artifacts** (canto direito).
 - **Porta ocupada (EADDRINUSE)**: libere a porta 4725. No PowerShell admin:  
   `Get-Process -Id (Get-NetTCPConnection -LocalPort 4725 -State Listen).OwningProcess | Stop-Process -Force`
 - **Build lento/timeout**: aumente `newCommandTimeout/adbExecTimeout/uiautomator2Server*Timeout` nas capabilities (`wdio.conf.ts`).
+- **K6 não encontrado**: confirme instalação com `k6 version`; se não encontrar, instale conforme instruções dos pré-requisitos.
+- **Erro de permissão K6**: use terminal como administrador ou ajuste permissões de arquivos/scripts.
 
 ---
 
 ### Contatos / Créditos
-- Stack: Cypress 13, Cucumber Preprocessor, Mochawesome, WDIO 9, Appium 2, Allure, JMeter 5.6.
-- Pipeline: GitHub Actions com 4 jobs e artifacts..
+- Stack: Cypress 13, Cucumber Preprocessor, Mochawesome, WDIO 9, Appium 2, Allure, K6.
+- Pipeline: GitHub Actions com 4 jobs e artifacts.
+
+```
