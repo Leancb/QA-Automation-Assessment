@@ -145,16 +145,16 @@ jobs:
             if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run test:all || npm --prefix mobile-tests run test:e2e || npm --prefix mobile-tests test; else npm run test:all || npm run test:e2e || npm test; fi
             if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:gen || true; else npm run report:gen || true; fi
 
-            # só abre o Allure localmente (fora do CI) — one-liner
-            # só abre o Allure localmente (fora do CI) — one-liner
+            # não abre o Allure no CI
             if [ -z "$CI" ]; then if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:open || true; else npm run report:open || true; fi; fi
 
             adb logcat -d > logcat.txt || true
-            dest="${GITHUB_WORKSPACE:-$(pwd)}/ci-mobile-artifacts"; mkdir -p "$dest"
-            for p in allure-results allure-report reports logs screenshots logcat.txt; do [ -e "mobile-tests/$p" ] && cp -R "mobile-tests/$p" "$dest"/ || true; [ -e "$p" ] && cp -R "$p" "$dest"/ || true; done
-            touch "$dest/_keep.txt"
-            echo "Artifacts em: $dest"
-            ls -la "$dest" || true
+
+            # criar destino e copiar artefatos SEM usar variáveis entre linhas
+            mkdir -p "${GITHUB_WORKSPACE:-$(pwd)}/ci-mobile-artifacts"
+            for p in allure-results allure-report reports logs screenshots logcat.txt; do [ -e "mobile-tests/$p" ] && cp -R "mobile-tests/$p" "${GITHUB_WORKSPACE:-$(pwd)}/ci-mobile-artifacts"/ || true; [ -e "$p" ] && cp -R "$p" "${GITHUB_WORKSPACE:-$(pwd)}/ci-mobile-artifacts"/ || true; done
+            touch "${GITHUB_WORKSPACE:-$(pwd)}/ci-mobile-artifacts/_keep.txt"
+            ls -la "${GITHUB_WORKSPACE:-$(pwd)}/ci-mobile-artifacts" || true
 
 
       - name: Upload mobile artifacts
