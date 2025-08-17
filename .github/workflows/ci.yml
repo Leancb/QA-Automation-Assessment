@@ -1,6 +1,6 @@
 name: CI
 
-"on":
+on:
   push:
     branches: [ main ]
   pull_request:
@@ -11,8 +11,11 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+# ✅ precisa disso para publicar no GitHub Pages
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 env:
   CI: true
@@ -94,12 +97,9 @@ jobs:
             e2e-tests/cypress/screenshots/**
           retention-days: 7
 
-
-
-
-# =======================
-# MOBILE TESTS (APPIUM + ANDROID EMULATOR)
-# =======================
+  # =======================
+  # MOBILE TESTS (APPIUM + ANDROID EMULATOR)
+  # =======================
   mobile_tests:
     name: Mobile CI (Android)
     runs-on: ubuntu-latest
@@ -108,6 +108,10 @@ jobs:
       CI: true
       ADB_INSTALL_TIMEOUT: '20'
       ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL: '20'
+    # necessário para Pages (exibe a URL ao final)
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout
@@ -124,7 +128,6 @@ jobs:
         with:
           node-version: '20'
           cache: npm
-          # Se o package.json estiver em mobile-tests, isso ajuda o cache:
           cache-dependency-path: |
             package-lock.json
             mobile-tests/package-lock.json
@@ -138,7 +141,9 @@ jobs:
           profile: pixel_6
           emulator-options: -no-snapshot -no-audio -no-window -no-boot-anim -gpu swiftshader_indirect
           script: |
+            # aguarda serviços + boot completo e desbloqueia
             adb shell 'for i in $(seq 1 60); do cmd -l | grep -q "settings" && exit 0; sleep 1; done' || true
+            adb shell 'while [ "$(getprop sys.boot_completed 2>/dev/null)" != "1" ]; do sleep 1; done; input keyevent 82' || true
 
             if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests ci; else npm ci; fi
             if [ -f mobile-tests/package.json ]; then npm --prefix mobile-tests run report:clean || true; else npm run report:clean || true; fi
@@ -152,13 +157,13 @@ jobs:
             adb logcat -d > logcat.txt || true
             adb logcat -d '*:S' ActivityManager:I AndroidRuntime:E DEBUG:E System.err:E > logcat_app.txt || true
 
-            # copiar artefatos para o workspace (sem usar variáveis entre linhas)
+            # copia artefatos para o workspace (sem variáveis entre linhas)
             mkdir -p "${GITHUB_WORKSPACE:-$(pwd)}/ci-mobile-artifacts"
             for p in allure-results allure-report reports logs screenshots logcat.txt logcat_app.txt; do [ -e "mobile-tests/$p" ] && cp -R "mobile-tests/$p" "${GITHUB_WORKSPACE:-$(pwd)}/ci-mobile-artifacts"/ || true; [ -e "$p" ] && cp -R "$p" "${GITHUB_WORKSPACE:-$(pwd)}/ci-mobile-artifacts"/ || true; done
+            # opcional: também inclui o HTML do Allure dentro do pacote geral
+            [ -d "mobile-tests/reports/allure/html" ] && cp -R "mobile-tests/reports/allure/html" "${GITHUB_WORKSPACE:-$(pwd)}/ci-mobile-artifacts/allure-html" || true; [ -d "reports/allure/html" ] && cp -R "reports/allure/html" "${GITHUB_WORKSPACE:-$(pwd)}/ci-mobile-artifacts/allure-html" || true
             touch "${GITHUB_WORKSPACE:-$(pwd)}/ci-mobile-artifacts/_keep.txt"
             ls -la "${GITHUB_WORKSPACE:-$(pwd)}/ci-mobile-artifacts" || true
-
-
 
       - name: Upload mobile artifacts
         if: always()
@@ -180,20 +185,45 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
+      # ===== Publicar Allure no GitHub Pages =====
+      - name: Prepare Allure for Pages
+        if: always()
+        run: |
+          mkdir -p public/allure
+          if [ -d mobile-tests/reports/allure/html ]; then
+            cp -R mobile-tests/reports/allure/html/* public/allure/
+          elif [ -d reports/allure/html ]; then
+            cp -R reports/allure/html/* public/allure/
+          fi
+          [ -e public/allure/index.html ] || echo "<h1>Sem relatório</h1>" > public/allure/index.html
+          ls -la public/allure || true
+
+      - name: Setup Pages
+        if: always()
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        if: always()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Deploy to GitHub Pages
+        if: always()
+        id: deployment
+        uses: actions/deploy-pages@v4
+
   # =======================
   # LOAD TESTS (K6)
   # =======================
-
   k6_load_test:
     name: Load Test (K6)
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - name: Checkout
-        # (se você usa checkout com path custom, ajuste os 'working-directory' abaixo)
         uses: actions/checkout@v4
 
-      # Debug: mostra conteúdo na raiz do repo e na pasta do K6
       - name: (debug) Repo root
         run: |
           echo "ROOT=$(pwd)"
@@ -205,7 +235,6 @@ jobs:
         with:
           node-version: '20'
 
-      # Instala o k6 nativamente (sem Docker)
       - name: Install k6 (apt)
         run: |
           sudo apt-get update
@@ -216,22 +245,18 @@ jobs:
           sudo apt-get install -y k6
           k6 version
 
-      # Instala deps do analisador (package.json dentro de k6-load-tests)
       - name: Install analyzer deps
         working-directory: k6-load-tests
         run: npm i
 
-      # Roda k6 exportando o summary diretamente na pasta correta
       - name: Run K6 (500 VUs / 5m) + export summary
         working-directory: k6-load-tests
         env:
-          # Opcional: defina em Settings → Variables como K6_BASE_URL
           BASE_URL: ${{ vars.K6_BASE_URL }}
         run: |
           test -f src/basic_load_test.js || (echo "ERRO: src/basic_load_test.js não existe em $(pwd)"; exit 1)
           k6 run --summary-export=summary.json src/basic_load_test.js
-          echo "Após k6:"
-          ls -la
+          echo "Após k6:" && ls -la
 
       - name: Generate analysis (analysis.md)
         working-directory: k6-load-tests
@@ -248,4 +273,3 @@ jobs:
             k6-load-tests/summary.txt
             k6-load-tests/analysis.md
           retention-days: 7
-
