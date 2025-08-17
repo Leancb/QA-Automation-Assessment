@@ -35,7 +35,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -562,6 +562,7 @@
     <MESSAGE value="Subindo o K6" />
     <MESSAGE value="Mobile corrigindo esteira" />
     <MESSAGE value="Mobile gera relatorio" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mobile gera relatorio" />
+    <MESSAGE value="Correção Readme.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correção Readme.md" />
   </component>
 </project>

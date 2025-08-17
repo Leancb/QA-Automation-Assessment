@@ -220,4 +220,4 @@ Para baixar: **Aba Actions → execução → Artifacts** (canto direito).
 
 ### Contatos / Créditos
 - Stack: Cypress 13, Cucumber Preprocessor, Mochawesome, WDIO 9, Appium 2, Allure, JMeter 5.6.
-- Pipeline: GitHub Actions com 4 jobs e artifacts.
+- Pipeline: GitHub Actions com 4 jobs e artifacts..
