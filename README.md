@@ -64,8 +64,6 @@ Por isso, todo o trabalho é feito diretamente na branch `main`.
 - **K6** (para testes de carga)
   - Instale via [site oficial](https://k6.io/docs/getting-started/installation/) ou `choco install k6` (no Windows, se usar Chocolatey).
 
-> **Dica CRLF/LF**: para evitar avisos de final de linha, adicione `.gitattributes` com `* text=auto` e normalize (`git add --renormalize .`).
-
 ---
 
 ## Como rodar local (Windows)

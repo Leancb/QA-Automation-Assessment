@@ -34,13 +34,8 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="Subindo apresentação.">
-      <change afterPath="$PROJECT_DIR$/.gradle/6.8/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/6.8/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/configuration-cache/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
+    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="- Atualiza README.md com fluxo de versão.&#10;- Exclui pdf privado.">
+      <change afterPath="$PROJECT_DIR$/docs/k6-dashboard.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -179,13 +174,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1755024855277</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Correções">
-      <created>1755065561356</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1755065561356</updated>
     </task>
     <task id="LOCAL-00004" summary="Correções de mobile app">
       <created>1755082166351</created>
@@ -523,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1755423037929</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="- Atualiza README.md com fluxo de versão.&#10;- Exclui pdf privado.">
+      <created>1755512923528</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1755512923529</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -578,6 +573,7 @@
     <MESSAGE value="Mobile gera relatorio" />
     <MESSAGE value="Correção Readme.md" />
     <MESSAGE value="Subindo apresentação." />
-    <option name="LAST_COMMIT_MESSAGE" value="Subindo apresentação." />
+    <MESSAGE value="- Atualiza README.md com fluxo de versão.&#10;- Exclui pdf privado." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Atualiza README.md com fluxo de versão.&#10;- Exclui pdf privado." />
   </component>
 </project>
