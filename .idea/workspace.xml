@@ -34,9 +34,7 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="- Atualiza README.md com fluxo de versão.&#10;- Exclui pdf privado.">
-      <change afterPath="$PROJECT_DIR$/docs/k6-dashboard.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="- Atualiza Docs">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -174,13 +172,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1755024855277</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Correções de mobile app">
-      <created>1755082166351</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1755082166351</updated>
     </task>
     <task id="LOCAL-00005" summary="Mobile app funcionando, README.md corrigido, ci.yml corrigido">
       <created>1755204946562</created>
@@ -518,7 +509,14 @@
       <option name="project" value="LOCAL" />
       <updated>1755512923529</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="- Atualiza Docs">
+      <created>1755515428201</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1755515428201</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -574,6 +572,7 @@
     <MESSAGE value="Correção Readme.md" />
     <MESSAGE value="Subindo apresentação." />
     <MESSAGE value="- Atualiza README.md com fluxo de versão.&#10;- Exclui pdf privado." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Atualiza README.md com fluxo de versão.&#10;- Exclui pdf privado." />
+    <MESSAGE value="- Atualiza Docs" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Atualiza Docs" />
   </component>
 </project>

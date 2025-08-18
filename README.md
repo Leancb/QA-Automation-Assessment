@@ -217,8 +217,6 @@ Para baixar: **Aba Actions → execução → Artifacts** (canto direito).
   ```
 ![K6 Dashboard](docs/k6-dashboard.png)
 
-> **Dica:** Você pode substituir as *prints* acima por **screenshots reais** após a primeira execução, mantendo os nomes em `docs/` para o README exibi-las automaticamente.
-
 ---
 
 ## Soluções de problemas (Windows)
