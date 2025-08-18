@@ -14,6 +14,7 @@ Repositório de avaliação com **quatro frentes de teste** e **CI (GitHub Actio
 
 ## Sumário
 - [Estrutura](#estrutura)
+- [Fluxo de Branches](#fluxo-de-branches)
 - [Pré-requisitos (Windows)](#pré-requisitos-windows)
 - [Como rodar local (Windows)](#como-rodar-local-windows)
   - [1) API – Cypress](#1-api--cypress)
@@ -37,6 +38,17 @@ Repositório de avaliação com **quatro frentes de teste** e **CI (GitHub Actio
 ├── load-tests/               # K6 scripts e relatórios
 └── .github/workflows/ci.yml  # Pipeline CI
 ```
+
+---
+
+## Fluxo de Branches
+
+Este projeto é desenvolvido e mantido por **um único autor**.  
+Por isso, todo o trabalho é feito diretamente na branch `main`.
+
+- A branch `main` contém **sempre a versão mais recente e estável** do código.
+- Não são utilizadas branches separadas para features ou correções, pois o fluxo simplificado atende bem ao contexto atual.
+- Caso o projeto evolua para colaboração em equipe, poderá ser adotada uma estratégia de branches (ex.: Git Flow ou Pull Requests).
 
 ---
 
@@ -81,7 +93,7 @@ npx cypress run
 > Requer **Android Studio/SDK** + emulador ou dispositivo físico.
 
 1) **APK do app**: coloque em `mobile-tests/app/demo.apk` (ou aponte outro caminho via `ANDROID_APP`).
-2) **Device**: inicie emulador ou plugue um device e confira:
+2) **Device**: inicie emululador ou plugue um device e confira:
 ```bash
 adb devices
 ## deve listar ao menos 1 "device"
@@ -230,5 +242,3 @@ Para baixar: **Aba Actions → execução → Artifacts** (canto direito).
 ### Contatos / Créditos
 - Stack: Cypress 13, Cucumber Preprocessor, Mochawesome, WDIO 9, Appium 2, Allure, K6.
 - Pipeline: GitHub Actions com 4 jobs e artifacts.
-
-```
