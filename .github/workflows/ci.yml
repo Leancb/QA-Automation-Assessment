@@ -21,8 +21,9 @@ jobs:
   # =======================
   # API TESTS (CYPRESS)
   # =======================
+  
   api_tests:
-    name: API (Cypress)
+    name: API Tests (Cypress)
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -34,30 +35,45 @@ jobs:
         with:
           node-version: '22'
           cache: 'npm'
-          cache-dependency-path: api-tests/package-lock.json
+          cache-dependency-path: |
+            api-tests/package-lock.json
+            api-tests/package.json
 
-      - name: Install deps
+      - name: Install dependencies
         working-directory: api-tests
-        run: npm ci
+        run: npm install
         env:
           CYPRESS_REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
 
-      - name: Run Cypress API tests
+      - name: Run Cypress tests
         working-directory: api-tests
-        run: npx cypress run
         env:
           CYPRESS_REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
+          CI: true
+        run: npm run test
 
-      - name: Upload Cypress reports (API)
+      - name: Generate Mochawesome report
+        working-directory: api-tests
+        run: |
+          npm run report:merge
+          npm run report:html
+
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-report-html
+          path: api-tests/cypress/reports/html
+
+      - name: Upload raw results (jsons + screenshots)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-api-reports
+          name: cypress-raw
           path: |
-            api-tests/cypress/reports/**
-            api-tests/cypress/screenshots/**
-          retention-days: 7
-
+            api-tests/cypress/reports/.jsons
+            api-tests/cypress/screenshot*
+            api-tests/cypress/screenshots
+          if-no-files-found: ignore
   # =======================
   # E2E TESTS (CYPRESS + CUCUMBER)
   # =======================
