@@ -34,15 +34,7 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mobile-tests/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mobile-tests/mobile-tests.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/specs/test.e2e.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wdio.conf.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-tests/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="- Atualizando Readme.md geral e de projetos." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -185,13 +177,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1755024855277</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Cy.yml corrigido">
-      <created>1755299050614</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1755299050614</updated>
     </task>
     <task id="LOCAL-00012" summary="Cy.yml corrigido">
       <created>1755301436653</created>
@@ -529,7 +514,14 @@
       <option name="project" value="LOCAL" />
       <updated>1756154200757</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="- Atualizando Readme.md geral e de projetos.">
+      <created>1756157155943</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1756157155943</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -589,6 +581,7 @@
     <MESSAGE value="- Atualizando Api Tests e ci.ymp" />
     <MESSAGE value="- Atualizando ci.ymp" />
     <MESSAGE value="- Atualizando projeto e2e-test e ci.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Atualizando projeto e2e-test e ci.yml" />
+    <MESSAGE value="- Atualizando Readme.md geral e de projetos." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Atualizando Readme.md geral e de projetos." />
   </component>
 </project>
