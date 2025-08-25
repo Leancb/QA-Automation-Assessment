@@ -35,83 +35,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="- Atualizando projeto e2e-test e ci.yml">
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress/e2e/features/tarefa1.login-formulario.pt.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress/e2e/features/tarefa2.checkout.pt.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress/e2e/steps/checkout.pt.steps.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress/e2e/steps/inventario.pt.steps.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress/e2e/steps/login.pt.steps.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress/fixtures/usuarios.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress/support/commands.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress/support/e2e.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress/support/page-objects/BasePage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress/support/page-objects/CarrinhoPage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress/support/page-objects/CheckoutPage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress/support/page-objects/InventarioPage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress/support/page-objects/LoginPage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/cypress/support/page-objects/ProdutoPage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-tests/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/.idea/e2e-tests.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress-cucumber-preprocessor.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/checkout.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/pages/cart.page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/pages/checkout.page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/pages/inventory.page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/pages/login.page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/fixtures/users.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/support/commands.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/support/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/support/step_definitions/checkout.steps.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/support/step_definitions/hooks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/cypress/support/step_definitions/login.steps.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e-tests/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-tests/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-tests/cypress.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/cypress.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-tests/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-tests/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/e2e-tests/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress.config.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/1-getting-started/todo.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/actions.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/aliasing.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/assertions.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/connectors.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/cookies.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/cypress_api.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/files.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/location.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/misc.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/navigation.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/network_requests.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/querying.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/spies_stubs_clocks.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/storage.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/traversal.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/utilities.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/viewport.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/waiting.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/2-advanced-examples/window.cy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/carrinho.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/carrinho/carrinho.steps.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/login.feature" beforeDir="false" afterPath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/login.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/e2e/features/login/login.steps.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/pages/CheckoutPage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/pages/InventoryPage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/pages/LoginPage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/cypress/support/e2e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/e2e-tests/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e2e-tests/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/e2e-tests/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -266,13 +193,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1755024855277</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Cy.yml corrigido">
-      <created>1755295282143</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1755295282143</updated>
     </task>
     <task id="LOCAL-00009" summary="Cy.yml corrigido">
       <created>1755295618782</created>
@@ -610,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1756135609794</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="- Atualizando projeto e2e-test e ci.yml">
+      <created>1756153516807</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1756153516808</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -669,6 +596,7 @@
     <MESSAGE value="- Atualiza Docs" />
     <MESSAGE value="- Atualizando Api Tests e ci.ymp" />
     <MESSAGE value="- Atualizando ci.ymp" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Atualizando ci.ymp" />
+    <MESSAGE value="- Atualizando projeto e2e-test e ci.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Atualizando projeto e2e-test e ci.yml" />
   </component>
 </project>
