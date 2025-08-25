@@ -34,8 +34,15 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mobile-tests/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile-tests/mobile-tests.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/specs/test.e2e.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wdio.conf.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-tests/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,13 +126,20 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/e2e-tests" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projetos\QA-Automation-Assessment" />
+      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\apps" />
+      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\app" />
+      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test" />
+      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test\specs" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Projetos\QA-Automation-Assessment\api-tests" />
       <recent name="C:\Projetos\QA-Automation-Assessment\e2e-tests\cypress\e2e\features" />
@@ -133,25 +147,6 @@
       <recent name="C:\Projetos\QA-Automation-Assessment\e2e-tests\cypress\e2e\features\carrinho" />
       <recent name="C:\Projetos\QA-Automation-Assessment\e2e-tests\cypress\e2e\features\login" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\apps" />
-      <recent name="C:\Projetos\QA-Automation-Assessment" />
-      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\app" />
-      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test" />
-      <recent name="C:\Projetos\QA-Automation-Assessment\mobile-tests\test\specs" />
-    </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="C:/Projetos/QA-Automation-Assessment" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -168,7 +163,9 @@
         </option>
         <option name="vmOptions" value="" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -177,7 +174,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -188,13 +185,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1755024855277</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Cy.yml corrigido">
-      <created>1755297828132</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1755297828132</updated>
     </task>
     <task id="LOCAL-00011" summary="Cy.yml corrigido">
       <created>1755299050614</created>
@@ -532,7 +522,14 @@
       <option name="project" value="LOCAL" />
       <updated>1756153901833</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="- Atualizando projeto e2e-test e ci.yml">
+      <created>1756154200757</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1756154200757</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -552,7 +549,6 @@
                   </entry>
                 </map>
               </option>
-              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -573,6 +569,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

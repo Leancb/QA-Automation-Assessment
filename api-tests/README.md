@@ -61,9 +61,3 @@ Gerados em `cypress/reports`.
 - **Evolução fácil:** dá pra adicionar mais casos negativos na T1 sem mexer no CRUD; ou incluir novos endpoints/métodos na T2 sem tornar o arquivo gigante.
 - **CI/CD:** fica simples rodar separado (ex.: `--spec tarefa1-basic.cy.js` vs `--spec tarefa2-crud.cy.js`) ou em paralelo.
 """
-
-path = "/mnt/data/README.md"
-with open(path, "w", encoding="utf-8") as f:
-    f.write(content)
-
-path
