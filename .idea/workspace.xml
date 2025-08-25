@@ -34,12 +34,7 @@
     </treeState>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="- Atualizando projeto e2e-test e ci.yml">
-      <change beforePath="$PROJECT_DIR$/api-tests/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-tests/cypress.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/cypress.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-tests/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-tests/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/api-tests/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="4c9fd793-7969-4c51-8c97-dca45d205d07" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,13 +188,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1755024855277</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Cy.yml corrigido">
-      <created>1755295618782</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1755295618782</updated>
     </task>
     <task id="LOCAL-00010" summary="Cy.yml corrigido">
       <created>1755297828132</created>
@@ -537,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1756153516808</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="- Atualizando projeto e2e-test e ci.yml">
+      <created>1756153901832</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1756153901833</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
