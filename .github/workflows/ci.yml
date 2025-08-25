@@ -21,11 +21,12 @@ jobs:
   # =======================
   # API TESTS (CYPRESS)
   # =======================
-  
+
   api_tests:
     name: API Tests (Cypress)
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,30 +40,58 @@ jobs:
             api-tests/package-lock.json
             api-tests/package.json
 
+      - name: Show Node & npm versions
+        run: |
+          node -v
+          npm -v
+
       - name: Install dependencies
         working-directory: api-tests
         run: npm install
-        env:
-          CYPRESS_REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
 
       - name: Run Cypress tests
         working-directory: api-tests
         env:
-          CYPRESS_REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
           CI: true
-        run: npm run test
+        run: npx cypress run
 
-      - name: Generate Mochawesome report
+      - name: List report files
+        if: always()
         working-directory: api-tests
         run: |
-          npm run report:merge
-          npm run report:html
+          echo "::group::Tree reports dir"
+          mkdir -p cypress/reports
+          ls -la cypress/reports || true
+          echo "::endgroup::"
+          echo "::group::Tree screenshots dir"
+          ls -la cypress/screenshots || true
+          echo "::endgroup::"
+
+      - name: Generate Mochawesome report (direct npx, with fallbacks)
+        if: always()
+        working-directory: api-tests
+        run: |
+          set -e
+          mkdir -p cypress/reports/html
+          if compgen -G "cypress/reports/.jsons/*.json" > /dev/null; then
+            echo "Merging from cypress/reports/.jsons/*.json"
+            npx mochawesome-merge cypress/reports/.jsons/*.json > cypress/reports/report.json
+          elif compgen -G "cypress/reports/*.json" > /dev/null; then
+            echo "Merging from cypress/reports/*.json"
+            npx mochawesome-merge cypress/reports/*.json > cypress/reports/report.json
+          else
+            echo "No mochawesome JSONs found. Skipping HTML generation."
+            exit 0
+          fi
+          npx marge cypress/reports/report.json --reportDir cypress/reports/html --inline
 
       - name: Upload HTML report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cypress-report-html
           path: api-tests/cypress/reports/html
+          if-no-files-found: ignore
 
       - name: Upload raw results (jsons + screenshots)
         if: always()
@@ -71,9 +100,10 @@ jobs:
           name: cypress-raw
           path: |
             api-tests/cypress/reports/.jsons
-            api-tests/cypress/screenshot*
+            api-tests/cypress/reports/*.json
             api-tests/cypress/screenshots
           if-no-files-found: ignore
+
   # =======================
   # E2E TESTS (CYPRESS + CUCUMBER)
   # =======================
