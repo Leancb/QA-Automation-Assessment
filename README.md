@@ -52,4 +52,14 @@ Confira em **Actions** a execução mais recente.
 
 ---
 
+## Fluxo de Branches
+
+Este projeto é desenvolvido e mantido por **um único autor**.  
+Por isso, todo o trabalho é feito diretamente na branch `main`.
+
+- A branch `main` contém **sempre a versão mais recente e estável** do código.
+- Não são utilizadas branches separadas para features ou correções, pois o fluxo simplificado atende bem ao contexto atual.
+- Caso o projeto evolua para colaboração em equipe, poderá ser adotada uma estratégia de branches (ex.: Git Flow ou Pull Requests).
+
+---
 **Dúvidas?** Consulte o README do subprojeto correspondente ou abra uma *issue*.
